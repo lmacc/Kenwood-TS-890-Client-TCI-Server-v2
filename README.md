@@ -65,14 +65,54 @@ itself: set the radio's COM port, its IP address for the bandscope, and tick
 
 ## The user guide
 
-`TS-890S-Desktop-Guide.pdf` is in the download, and inside the application
-behind **ABOUT → USER GUIDE**. It is written for somebody who has never used
-the application before.
+A full guide comes with the download, written for somebody who has never
+used the application before. Open it any time from **ABOUT → USER GUIDE**.
+A taste of what's in it:
+
+- **Up and running in one window.** COM port, audio, bandscope and sharing
+  are all set in one place, and it opens by itself the first time you run
+  the app. If the bandscope is ever empty, the scope itself tells you why.
+- **Tune the way you like.** Drag the knob, roll the mouse wheel (Shift for
+  fine steps), click or drag on the bandscope, Ctrl+wheel to zoom the span,
+  or type a frequency on the keypad.
+- **Band stacks that remember the mode.** Press and hold a band key for five
+  slots per band, each keeping its frequency *and* the mode you worked it in,
+  because 7.040 in CW and 7.040 in LSB are different places.
+- **Work split without losing your place.** TF-SET lets you listen on your
+  transmit frequency and move it. The R and T markers merge on the scope, and
+  a marker is left where you came from. A red VFO B key moves your transmit
+  frequency while the receiver stays on the pile-up.
+- **A bandscope you can tame.** Drag the trace down and strong signals stop
+  hitting the top while the noise floor stays put. Pause the picture, nudge
+  the reference, pick a palette, and every choice is remembered.
+- **See your own audio.** Nothing on the radio shows you what your audio
+  looks like. The audio scope does: average and peak traces, THD, THD+N and
+  S/N readings from a click on a peak, before-and-after holds to compare, and
+  masks for 2.8k, 3.5k and 4k eSSB bandwidths.
+- **NR4 on the PC.** Spectral noise reduction on what you hear, stacking with
+  the radio's own NR, while the scopes and the recorder keep what the radio
+  really sent.
+- **FT8 with the band at a glance.** WSJT-X decodes land on the bandscope at
+  the frequency they were heard: amber for a DXCC entity you've never worked,
+  cyan for new on this band, and an **L** for LoTW users. **Set up for FT8**
+  configures the rig in one press, and **Put it back** undoes exactly what it
+  changed.
+- **The radio's menu, searchable.** Every row carries the rig's own menu
+  number, and typing *115200* finds the baud rate. The network (KNS) settings
+  have a page of their own.
+- **Make it yours.** Arrange, resize and hide the clusters, save layouts (a
+  contest one and a listening one), lock the window size, and put any key on
+  the keyboard.
+- **When something isn't working.** A troubleshooting table goes straight
+  from the symptom to the most likely cause.
 
 ## Support
 
 Free, and always will be. If it's earned a place in your shack, a coffee
-keeps it growing.
+keeps it growing. There's a **DONATE** key in the application's About box,
+or use the button below.
+
+<img src="docs/images/about.png" alt="The About box, with USER GUIDE and DONATE" width="420">
 
 [![Donate with PayPal](https://img.shields.io/badge/Donate-PayPal-00457C?logo=paypal&style=for-the-badge)](https://www.paypal.com/donate/?business=9XVP453VRC5GC&no_recurring=0&item_name=Free%2C+and+always+will+be.+If+it%27s+earned+a+place+in+your+shack%2C+a+coffee+keeps+it+growing.+73%2C+Leslie+EI5GJB&currency_code=EUR)
 
