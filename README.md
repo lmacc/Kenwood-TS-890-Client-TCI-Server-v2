@@ -46,16 +46,31 @@ second will not fit down a 115200-baud serial port.
 | ![NR4](docs/images/nr4.png) | ![Key bindings](docs/images/key-bindings.png) |
 | NR4 noise reduction, with every control explained. | Put any key on the keyboard. |
 
-## Download and run
+## Download and install
 
-1. Download the zip from the
-   [latest release](https://github.com/lmacc/Kenwood-TS-890-Client-TCI-Server-v2/releases/latest).
-2. Unzip it anywhere — the Desktop, Documents, a USB stick.
-3. Run `ts890-usb.exe`.
+1. From the
+   [latest release](https://github.com/lmacc/Kenwood-TS-890-Client-TCI-Server-v2/releases/latest),
+   download **`TS-890S-Desktop-<version>-setup.exe`**.
+2. Run it. It installs for you alone without asking for an administrator, or
+   for everybody on the computer if you choose that on its first page.
+3. Start **TS-890S Desktop** from the Start menu. The user guide is there
+   too.
 
-There is no installer. On the first run the Connections window opens by
-itself: set the radio's COM port, its IP address for the bandscope, and tick
-**Audio in**.
+> **"Windows protected your PC"?** The installer is not yet digitally
+> signed, so Windows SmartScreen asks before running it the first time.
+> Click **More info**, then **Run anyway**.
+
+On the first run the Connections window opens by itself: set the radio's COM
+port, its IP address for the bandscope, and tick **Audio in**.
+
+A newer installer upgrades an older installation in place, and your settings
+are kept. To remove it, use **Settings → Apps** like any other program.
+
+**Prefer not to install?** Each release also has a portable
+**`…-win64.zip`**. Extract the **whole** zip first (right-click, **Extract
+All**) and run `ts890-usb.exe` from the extracted folder — run from inside
+the zip, Windows copies the program out without the files it needs, and it
+stops with *"Qt6Core.dll was not found"*.
 
 **You need:**
 
