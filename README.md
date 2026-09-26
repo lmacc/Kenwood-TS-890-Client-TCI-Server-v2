@@ -1,3 +1,5 @@
+<img src="docs/images/icon.png" alt="" width="96" align="left">
+
 # TS-890S Desktop Front Panel
 
 **A front panel for the Kenwood TS-890S on your Windows PC — with a TCI server
@@ -5,6 +7,8 @@ built in.**
 
 [![Download](https://img.shields.io/github/v/release/lmacc/Kenwood-TS-890-Client-TCI-Server-v2?label=Download&logo=windows)](https://github.com/lmacc/Kenwood-TS-890-Client-TCI-Server-v2/releases/latest)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-00457C?logo=paypal)](https://www.paypal.com/donate/?business=9XVP453VRC5GC&no_recurring=0&item_name=Free%2C+and+always+will+be.+If+it%27s+earned+a+place+in+your+shack%2C+a+coffee+keeps+it+growing.+73%2C+Leslie+EI5GJB&currency_code=EUR)
+
+<br clear="left">
 
 ![The front panel](docs/images/front-panel.png)
 
