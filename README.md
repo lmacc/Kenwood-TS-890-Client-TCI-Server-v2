@@ -1,0 +1,92 @@
+# TS-890S Desktop Front Panel
+
+**A front panel for the Kenwood TS-890S on your Windows PC — with a TCI server
+built in.**
+
+[![Download](https://img.shields.io/github/v/release/lmacc/Kenwood-TS-890-Client-TCI-Server-v2?label=Download&logo=windows)](https://github.com/lmacc/Kenwood-TS-890-Client-TCI-Server-v2/releases/latest)
+[![Donate](https://img.shields.io/badge/Donate-PayPal-00457C?logo=paypal)](https://www.paypal.com/donate/?business=9XVP453VRC5GC&no_recurring=0&item_name=Free%2C+and+always+will+be.+If+it%27s+earned+a+place+in+your+shack%2C+a+coffee+keeps+it+growing.+73%2C+Leslie+EI5GJB&currency_code=EUR)
+
+![The front panel](docs/images/front-panel.png)
+
+Every key, knob and meter is drawn to look and behave like the radio's own,
+and the clusters of controls can be moved, resized, hidden and saved as
+layouts of your own. CAT and audio come over the radio's USB cable; the
+bandscope comes over your network, fast and smooth, because twenty sweeps a
+second will not fit down a 115200-baud serial port.
+
+## What it does
+
+- **The radio's front panel on screen** — VFOs, band keys, modes, filters,
+  split and TF-SET, RIT/XIT, AGC, NR, NB, notch, the meters, the radio's own
+  menu, and more, all live and in step with the rig.
+- **Bandscope and waterfall** over the LAN, with markers, passband dragging
+  and click-to-tune.
+- **Audio scope** — a measuring analyser for the receive and transmit audio:
+  peak and average traces, holds to compare against, THD and S/N readings.
+- **NR4** — spectral noise reduction on the computer, on top of the radio's
+  own NR.
+- **CW, RTTY and PSK31** — decode and send.
+- **FT8 alongside WSJT-X** — decodes shown on the bandscope, coloured by what
+  is new to you.
+- **TCI server** — logging and digital-mode programs such as Log4OM, WSJT-X
+  and MSHV follow the radio over TCI.
+- **CAT sharing** — pass CAT through to another program on a virtual serial
+  port, so the panel and your logger both work at once.
+- **Recorder**, **keyboard shortcuts** for every key, and a full
+  [user guide](#the-user-guide).
+
+| | |
+|---|---|
+| ![Connections](docs/images/connections.png) | ![Working with Log4OM and WSJT-X](docs/images/tci-and-cat-sharing.png) |
+| One window to set up: COM port, audio, bandscope, sharing. | Log4OM and WSJT-X following the radio while the panel runs. |
+| ![NR4](docs/images/nr4.png) | ![Key bindings](docs/images/key-bindings.png) |
+| NR4 noise reduction, with every control explained. | Put any key on the keyboard. |
+
+## Download and run
+
+1. Download the zip from the
+   [latest release](https://github.com/lmacc/Kenwood-TS-890-Client-TCI-Server-v2/releases/latest).
+2. Unzip it anywhere — the Desktop, Documents, a USB stick.
+3. Run `ts890-usb.exe`.
+
+There is no installer. On the first run the Connections window opens by
+itself: set the radio's COM port, its IP address for the bandscope, and tick
+**Audio in**.
+
+**You need:**
+
+- Windows 10 or 11, 64-bit.
+- The radio's USB cable to the PC, with its USB driver (Silicon Labs CP210x)
+  installed so its COM ports appear.
+- The radio's CAT speed at **115200** (menu 7-00).
+- For the LAN bandscope: the radio on your network and its KNS user name and
+  password. Without it everything else still works, with a slower bandscope
+  over USB.
+
+## The user guide
+
+`TS-890S-Desktop-Guide.pdf` is in the download, and inside the application
+behind **ABOUT → USER GUIDE**. It is written for somebody who has never used
+the application before.
+
+## Support
+
+Free, and always will be. If it's earned a place in your shack, a coffee
+keeps it growing.
+
+[![Donate with PayPal](https://img.shields.io/badge/Donate-PayPal-00457C?logo=paypal&style=for-the-badge)](https://www.paypal.com/donate/?business=9XVP453VRC5GC&no_recurring=0&item_name=Free%2C+and+always+will+be.+If+it%27s+earned+a+place+in+your+shack%2C+a+coffee+keeps+it+growing.+73%2C+Leslie+EI5GJB&currency_code=EUR)
+
+73, Leslie EI5GJB
+
+## Licence
+
+Freeware — free to use, and free to pass on unchanged, but not for sale. See
+[LICENSE](LICENSE). The application is distributed as a compiled program
+only.
+
+It is built on Qt, libspecbleach and KISS FFT, each under its own licence;
+the notices are in the `licenses` folder of the download. The source of
+libspecbleach, as built, is attached to each release.
+
+Not made or endorsed by JVCKENWOOD. TS-890S and KENWOOD are trademarks of
+JVCKENWOOD Corporation.

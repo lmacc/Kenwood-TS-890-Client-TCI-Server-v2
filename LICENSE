@@ -1,0 +1,50 @@
+TS-890S Desktop Front Panel
+Freeware licence
+
+Copyright (c) 2026 Leslie McCarthy, EI5GJB. All rights reserved.
+
+This licence covers the TS-890S Desktop Front Panel application (the
+"Software"): the program ts890-usb.exe, its user guide and the other files in
+the download that were written for it. It does not cover the third-party
+components listed in licenses/THIRD-PARTY-NOTICES.txt, which remain under
+their own licences.
+
+1. Use. You may download, install and use the Software free of charge, on as
+   many computers as you like, for any lawful purpose.
+
+2. Sharing. You may give copies of the Software to others, provided that you
+   pass on the complete, unmodified download - including this licence and the
+   licenses folder - and that you charge nothing for it. You may not sell the
+   Software, include it in anything that is sold, or ask for payment for
+   providing it.
+
+3. No source code. The Software is distributed as a compiled program only.
+   Its source code is not published and is not part of this licence.
+
+4. Restrictions. Except as allowed by section 5 or by law that cannot be set
+   aside by agreement, you may not modify, decompile, disassemble or
+   otherwise reverse engineer the Software, and you may not remove or alter
+   any copyright notice in it.
+
+5. Third-party components. The Software uses libraries published under other
+   licences, among them Qt and libspecbleach under the GNU Lesser General
+   Public License. Nothing in this licence limits the rights those licences
+   give you. In particular, you may replace those libraries with versions of
+   your own, and you may reverse engineer the Software as far as is needed to
+   debug such replacements.
+
+6. No warranty. The Software is provided "as is", without warranty of any
+   kind, express or implied, including but not limited to the warranties of
+   merchantability, fitness for a particular purpose and non-infringement.
+
+7. Limitation of liability. In no event shall the author be liable for any
+   claim, damages or other liability, whether in contract, tort or otherwise,
+   arising from, out of or in connection with the Software or its use,
+   including any damage to equipment or any loss of data.
+
+8. Your station. The Software controls a radio transmitter. You are
+   responsible for operating your station within the terms of your licence
+   and the regulations that apply to you.
+
+TS-890S and KENWOOD are trademarks of JVCKENWOOD Corporation. The Software is
+not made or endorsed by JVCKENWOOD.
