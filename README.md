@@ -104,8 +104,14 @@ means Log4OM has it.*
 > yet, so Windows asks before running it the first time. Click **More
 > info**, then **Run anyway**.
 
-The first time you run it, the Connections window opens. Set the radio's
-COM port and its IP address for the bandscope, and tick **Audio in**.
+The first time you run it, the Connections window opens and the app looks
+for the radio's COM port by itself. Then set the radio's IP address for the
+bandscope, and tick **Audio in**.
+
+> **No frequency showing?** The radio has two COM ports and only one of
+> them works for control. Press **Find radio** in **RADIO → Connections**
+> and the app picks the right one. It also tells you if another program is
+> using the port, or if the radio's CAT speed (menu 7-00) isn't 115200.
 
 A newer installer updates the one you have, and your settings are kept. To
 remove it, use **Settings → Apps** like any other program.
@@ -142,9 +148,10 @@ how it hears the radio's USB audio. Without it the scopes and decoders get
 no sound. It may also ask about the **local network**. That's for the
 bandscope, so say yes to that too.
 
-The first time you run it, the Connections window opens. The radio's USB
-ports show up with names like `cu.SLAB_USBtoUART` or `cu.usbserial-…`. Pick
-the first of the two. To update later, drag the new version over the old
+The first time you run it, the Connections window opens and the app looks
+for the radio's port by itself. The radio's USB ports show up with names
+like `cu.SLAB_USBtoUART` or `cu.usbserial-…`. If it picks the wrong one,
+press **Find radio**. To update later, drag the new version over the old
 one. Your settings are kept.
 
 ### What it runs on
@@ -177,8 +184,9 @@ never used the app before. You can open it any time from **ABOUT → USER
 GUIDE**. Some of what it covers:
 
 - **Setup in one window.** COM port, audio, bandscope and sharing are all
-  in the Connections window, which opens by itself the first time. If the
-  bandscope is ever empty, it tells you why.
+  in the Connections window, which opens by itself the first time. **Find
+  radio** picks the right COM port for you. If the bandscope is ever empty,
+  it tells you why.
 - **Tuning.** Drag the knob, use the mouse wheel (hold Shift for small
   steps), click or drag on the bandscope, Ctrl+wheel to change the span, or
   type a frequency on the keypad.
