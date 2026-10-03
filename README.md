@@ -12,7 +12,12 @@ server built in.**
 
 <br clear="left">
 
-![The front panel](docs/images/front-panel.png)
+![The front panel in version 2.2.2](docs/images/front-panel-v2.2.2.png)
+
+*Version 2.2.2, as a new install opens it. Across the top: the analogue
+S-meter, the frequency, the clock, RIT/XIT and D.VOX, then power, MIC and
+DELAY over the filter scope. Below: the bandscope and waterfall, the
+radio's own keys and knobs, and the audio scope along the bottom.*
 
 The keys, knobs and meters look and work like the ones on the radio. You
 can move, resize and hide the groups of controls, and save your own
@@ -20,17 +25,47 @@ layouts. CAT control and audio go over the radio's USB cable. The bandscope
 comes over your network, because the USB serial link is too slow for a
 smooth scope.
 
+## New in 2.2.2
+
+- **[The top of the radio's screen](#the-top-of-the-screen)** on yours: an
+  analogue S-meter with a moving needle, the filter scope, the clock, and
+  the RIT/XIT, D.VOX, power and TCI readouts.
+- **[Talk through the computer](#talk-through-the-computer)** with a
+  headset or desk microphone.
+- **[FreeDV digital voice](#freedv-digital-voice)**, with FreeDV Reporter
+  built in.
+- **[VST 3 plugins](#vst-3-plugins)** on your microphone and on what you
+  hear.
+- **[Band plans for 5 MHz and 70 MHz](#band-plans-for-5-mhz-and-70-mhz)**
+  for Ireland, the UK and the US.
+- **SHIFT** on the scope keys, a RIT/XIT knob that turns all the way round,
+  **VIEW → Show hints**, and a new default layout.
+- A **user guide** with a contents page, bookmarks and an index.
+
+The full list is in the
+[release notes](https://github.com/lmacc/Kenwood-TS-890-Client-TCI-Server-v2/releases/latest).
+
 ## What it does
 
-- **The radio's front panel on your screen.** VFOs, band keys, modes,
-  filters, split, TF-SET, RIT/XIT, AGC, NR, NB, notch, the meters and the
-  radio's own menu. It all stays in step with the rig.
+- **The radio's front panel on your screen.** VFOs, band keys from 1.8 to
+  70 MHz, modes, filters, split, TF-SET, RIT/XIT, AGC, NR, NB, notch, the
+  meters and the radio's own menu. It all stays in step with the rig.
+- **The top of the radio's screen.** Analogue or digital S-meter, filter
+  scope, clock, RIT/XIT, D.VOX, power, MIC and DELAY.
 - **Bandscope and waterfall** over your network. Click to tune, drag to
-  tune, markers, and drag the filter edges.
+  tune, markers, drag the filter edges, and band plans for 5 and 70 MHz.
 - **Audio scope.** See your receive and transmit audio, with peak and
   average traces, THD and S/N readings.
 - **NR4 noise reduction** on the computer, on top of the radio's own NR.
 - **CW, RTTY and PSK31.** Decode and send, with F1 to F8 macros.
+- **Talk through the computer.** Plug a headset into the PC and hold MIC
+  or F12 to talk. Your audio goes to the radio as it is, with no processing
+  added.
+- **FreeDV digital voice.** RADE, 700D, 700E and 1600, receive and
+  transmit, with the other station's callsign on screen and FreeDV
+  Reporter built in. No other program needed.
+- **VST 3 plugins.** Your own equalisers, compressors and noise reducers
+  on the microphone and on what you hear.
 - **Logbook.** Log a QSO with two presses of the LOG key. It records their
   signal from the S-meter and sends the QSO to Log4OM, or any logger that
   takes QSOs from WSJT-X. If your logger is closed, the QSO waits and goes
@@ -38,7 +73,7 @@ smooth scope.
 - **FT8 with WSJT-X.** WSJT-X decodes show up on the bandscope, coloured
   if the country is new to you.
 - **TCI server.** Log4OM, WSJT-X, MSHV and other programs can follow the
-  radio over TCI.
+  radio over TCI. The panel shows which ones are connected.
 - **CAT sharing (Windows only).** Share the radio's CAT port with another
   program through a virtual serial port, so both work at the same time.
 - **Recorder**, **keyboard shortcuts** for every key, and a full
@@ -46,10 +81,206 @@ smooth scope.
 
 | | |
 |---|---|
-| ![Connections](docs/images/connections.png) | ![Working with Log4OM and WSJT-X](docs/images/tci-and-cat-sharing.png) |
-| All the setup in one window: COM port, audio, bandscope and sharing. | Log4OM and WSJT-X following the radio. |
+| ![Connections](docs/images/connections-microphone.png) | ![Working with Log4OM and WSJT-X](docs/images/tci-and-cat-sharing.png) |
+| All the setup in one window: COM port, audio, your microphone, bandscope, sharing and TCI. | Log4OM and WSJT-X following the radio. |
 | ![NR4](docs/images/nr4.png) | ![Key bindings](docs/images/key-bindings.png) |
 | NR4 noise reduction, with every setting explained. | Put any key on the keyboard. |
+
+## The top of the screen
+
+Across the top of the panel are the readouts the radio has across the top
+of its own screen. Each one is a group of its own, so you can move it,
+resize it or hide it, like any other part of the panel.
+
+### The S-meter
+
+The S-meter looks and moves like the analogue meter on the radio. While you
+receive, the needle points at the same S-unit the radio does. It rises
+quickly and falls back slowly, like a real meter. While you transmit, it
+shows the meter you have chosen with the **METER** key.
+
+**Double-click** the meter to change how it looks. The app remembers your
+choice.
+
+| Dark face | Light face | Digital meter |
+|:---:|:---:|:---:|
+| ![The dark face](docs/images/s-meter-dark.png) | ![The light face](docs/images/s-meter-light.png) | ![The digital meter](docs/images/s-meter-digital.png) |
+| White scales on black. | Black scales on cream, like the radio's white meter. | Bars for S, PWR and the meter chosen with METER, here TEMP. |
+
+- **On the analogue faces**, the top scale is S1 to S9, then +20, +40 and
+  +60 dB in red. The scales below it are for transmitting: PO (power), SWR,
+  Id (current), COMP, ALC and Vd (voltage).
+- **On the digital meter**, each bar fills from the left. S is the signal
+  you are receiving. PWR is your power while you transmit, 0 to 150 W. The
+  third bar is the meter chosen with METER.
+
+### The METER key
+
+**METER** chooses which meter shows while you transmit. Each press goes to
+the next one: PO, ALC, SWR, COMP, Id, Vd, then TEMP. The one chosen shows
+on the key.
+
+- **COMP** is only offered while the speech processor (PROC) is on, as on
+  the radio.
+- **TEMP** is the radio's temperature. It puts the meter on its digital
+  look, with a TEMP bar from Low to High.
+- METER here and METER on the radio are the same setting. Press either and
+  the other follows.
+
+### The filter scope
+
+The small scope at the top right is a copy of the filter scope on the
+radio. It shows which receive filter is in use (A, B or C), its settings
+(low cut, bandwidth and high cut, or width and shift), the filter's shape,
+the audio inside it, and the roofing filter. For voice it has a 3 kHz
+scale, and a 5 kHz scale once the high cut goes above 3 kHz, as the radio
+does.
+
+### The clock
+
+The clock shows the radio's own date and time, and its second clock (UTC,
+for example). **Double-click** it to open the **Radio clock** window, where
+you can:
+
+- set the radio to this computer's time with one click, or type a time in;
+- have the radio set itself from a time server (NTP);
+- choose the time zones, the date format, and which clocks the radio shows
+  on its own screen.
+
+![The Radio clock window](docs/images/radio-clock.png)
+
+*The Radio clock window. Here the radio is setting its own time from a time
+server, so setting it by hand is greyed out.*
+
+### The other readouts
+
+| Readout | What it shows |
+|---|---|
+| **Frequency** | VFO A and VFO B, the mode, and SPLIT, RIT, XIT and LOCK when they are on. Now a group of its own, so you can move it. |
+| **RIT / XIT** | Whether RIT and XIT are on, and the offset: 0.000 when there is none. |
+| **D.VOX** | Whether DATA VOX is on, and which input it listens to. |
+| **Power / MIC / DELAY** | Your transmit power, microphone gain and delay, for example "5W MIC: 23 DELAY: 3". |
+| **TCI** | Which programs are connected to the TCI server, as short tags: **L4OM** for Log4OM, **WSJT** for WSJT-X, **N1MM**, **JTDX**, and so on. If there are more than fit, it shows "+2" and so on. Rest the pointer on it for the full list. |
+
+## Talk through the computer
+
+Plug a headset or desk microphone into the PC, and talk on the air through
+the app.
+
+1. Open **RADIO → Connections**. In the **Microphone** box, tick **Mic in**
+   and pick your microphone.
+2. Talk, and watch **Level**. Aim for peaks around −12 dB. Use **Trim** if
+   it doesn't get there.
+3. Hold **MIC** on the top bar, or hold **F12**, and talk. Let go to go
+   back to receive.
+
+Tick **MIC key latches** if you'd rather click once to talk and again to
+stop. The app adds no processing of its own. Shape your sound with the
+radio's TX EQ, or with [plugins](#vst-3-plugins), and check it on the audio
+scope. For safety, the microphone never transmits for more than three
+minutes at a time.
+
+## FreeDV digital voice
+
+FreeDV is built in. Press **FREEDV** and the FreeDV pane opens under the
+waterfall. **RADIO → Set up for FreeDV** puts the radio in USB-D (or
+LSB-D, where stations work LSB) with the right filters, in one press you
+can undo. When a station comes on you hear their voice without the hiss,
+and their callsign shows in the pane. Hold **MIC** or **F12** to answer.
+Your voice goes out as FreeDV, with your callsign.
+
+![The FreeDV pane](docs/images/freedv-pane.png)
+
+*The FreeDV pane in RADE: locked on to a signal 9 dB above the noise, with
+the callsign of the station being heard.*
+
+- **All the current modes.** RADE, which is what most FreeDV stations use
+  now, and 700D, 700E and 1600. It works with the FreeDV application and
+  anyone else running FreeDV.
+- **FreeDV Reporter.** The **REPORTER** key shows every FreeDV station on
+  the air, where they are, who is transmitting and who has heard whom.
+  Double-click one to tune to it. You can put your own station on the list
+  too, but only if you tick the box. Until then nothing about you is sent.
+- **No extra setup.** It uses the same audio as the rest of the app. If
+  your microphone works, FreeDV works.
+
+![FreeDV Reporter](docs/images/freedv-reporter.png)
+
+*FreeDV Reporter beside the front panel. EI5GJB is on the list and
+transmitting in RADE on 7.156 MHz, so its line is red.*
+
+## VST 3 plugins
+
+Run the same equalisers, compressors, de-essers and noise reducers a
+recording studio uses. There are two chains, each with its own window:
+
+- **Microphone**: your voice, before it goes to the radio (and before
+  FreeDV, when FreeDV is on).
+- **Listen**: the radio's audio you hear on this computer, and FreeDV's
+  decoded voice. The decoders, the audio scope, recordings and TCI still
+  get the radio's audio as it arrives.
+
+![Listen plugins at work](docs/images/plugins-listen.png)
+
+*Two Listen plugins working on the receive audio, with their own windows
+open. In Connections, on the left, each chain says how many plugins it has
+and how many are on.*
+
+Open a chain with the **Plugins…** button in **RADIO → Connections**, or
+from the RADIO menu. **ADD…** lists every VST 3 plugin on your computer.
+Each plugin can be switched on and off, moved up or down, and opened to set
+it up. **ALL OFF** lets you hear the difference they make. Every setting is
+kept for next time.
+
+| | |
+|---|---|
+| ![Adding a plugin](docs/images/plugins-add.png) | ![A chain of three plugins](docs/images/plugins-chain.png) |
+| Adding a plugin to the microphone chain. | A Listen chain of three plugins, with the level in and out of each, and how much they delay the audio. |
+
+The plugins run in a separate program in the background. A plugin that
+crashes or stops responding can't take the front panel with it, or leave
+the radio stuck in transmit. Your audio carries on without it, and the app
+tells you which plugin it was. Plugins have been tried on Windows so far.
+
+## Band plans for 5 MHz and 70 MHz
+
+Choose your country under **RADIO → Band plan**: Ireland, the UK or the
+US. On 5 MHz and 70 MHz the bandscope shows the segments you may use, in
+colour, with the details when you rest the pointer on one. Anything
+outside the plan is tinted red. If what you are about to transmit falls
+outside the plan, or is too wide for that part of it, a short warning
+appears. It only warns. It never stops you transmitting.
+
+![The 5 MHz band plan on the bandscope](docs/images/band-plan-5mhz.png)
+
+*60 m with the band plan on: the allowed segments are marked along the top
+of the bandscope.*
+
+- **UK**: the RSGB 5 MHz plan from 1 January 2026.
+- **Ireland**: the RSGB blocks, with the IRTS (IARU Region 1) plan from
+  5351.5 to 5366.5 kHz.
+- **US**: the FCC rules.
+- On 5 MHz the radio's transmit and receive filters are set to the band's
+  width (2.7 kHz in Ireland and the UK, 2.8 kHz in the US). Your own
+  filters are put back when you leave the band.
+- The band keys now include **5** and **70**.
+
+## Log4OM over TCI
+
+Log4OM can follow the radio through the app's TCI server. In Log4OM, open
+the configuration, go to **Hardware Configuration → CAT interface**, and
+set **CAT Engine** to **TCIProtocol**. On the **TCI** tab, set the address
+to **localhost** and the port to the one shown in the app's Connections
+window (40001 here).
+
+| | |
+|---|---|
+| ![Log4OM CAT engine set to TCI](docs/images/log4om-tci-engine.png) | ![Log4OM TCI address and port](docs/images/log4om-tci-port.png) |
+| CAT Engine set to TCIProtocol. | The TCI tab: localhost and the app's port. |
+
+> **Log4OM doesn't reconnect by itself.** If you close and restart the
+> app, start Log4OM's CAT again with **Connect → CAT → Start CAT**. Other
+> programs, such as WSJT-X, reconnect on their own.
 
 ## Logging from the decoded text
 
@@ -181,12 +412,16 @@ WSJT-X, such as MacLoggerDX and RUMlogNG.
 
 The download comes with a full user guide, written for someone who has
 never used the app before. You can open it any time from **ABOUT → USER
-GUIDE**. Some of what it covers:
+GUIDE**. It has a contents page, bookmarks in your PDF reader's side panel,
+and an index at the back, so you can go straight to what you need. Some of
+what it covers:
 
-- **Setup in one window.** COM port, audio, bandscope and sharing are all
-  in the Connections window, which opens by itself the first time. **Find
-  radio** picks the right COM port for you. If the bandscope is ever empty,
-  it tells you why.
+- **Setup in one window.** COM port, audio, microphone, bandscope and
+  sharing are all in the Connections window, which opens by itself the
+  first time. **Find radio** picks the right COM port for you. If the
+  bandscope is ever empty, it tells you why.
+- **The top of the screen.** The S-meter and its three looks, the METER
+  key, the filter scope, setting the clock, and the TCI readout.
 - **Tuning.** Drag the knob, use the mouse wheel (hold Shift for small
   steps), click or drag on the bandscope, Ctrl+wheel to change the span, or
   type a frequency on the keypad.
@@ -196,8 +431,10 @@ GUIDE**. Some of what it covers:
   A marker shows where you came from. The VFO B key moves your transmit
   frequency while you keep listening to the pile-up.
 - **Bandscope settings.** Pull the trace down so strong signals don't hit
-  the top. Pause it, change the reference level, pick colours. It remembers
-  all your choices.
+  the top. Pause it, change the reference level, pick colours, and use
+  SHIFT. It remembers all your choices.
+- **Band plans.** What each 5 MHz and 70 MHz segment is for, in Ireland,
+  the UK and the US, and where each figure comes from.
 - **Your own audio.** The audio scope shows what your transmit audio looks
   like, with THD and S/N readings, before-and-after comparisons, and masks
   for 2.8k, 3.5k and 4k eSSB widths.
@@ -207,12 +444,18 @@ GUIDE**. Some of what it covers:
   Amber is a new country, cyan is new on this band, and an **L** means they
   use LoTW. **Set up for FT8** sets the radio up in one press, and **Put it
   back** undoes it.
+- **Microphone and FreeDV.** Setting the microphone level, what each
+  FreeDV mode is for, setting the radio up for it, the FreeDV pane, and
+  FreeDV Reporter.
+- **Plugins.** Adding them, putting them in order, what the delay means,
+  and what happens if one misbehaves.
 - **Logging.** How to pick details out of the decoded text, the LOG key,
   the Logbook, and connecting it to your logger.
 - **The radio's menu.** Every setting shows the radio's own menu number, and
   you can search it. Type *115200* and it finds the baud rate.
 - **Make it yours.** Move, resize and hide the groups of controls, save
-  layouts, lock the window size, and put any key on the keyboard.
+  layouts, lock the window size, turn hints off, and put any key on the
+  keyboard.
 - **Troubleshooting.** A table that goes from the problem to the most
   likely cause.
 
@@ -234,9 +477,11 @@ Freeware. It's free to use and free to pass on as long as you don't change
 it, but it's not for sale. See [LICENSE](LICENSE). Only the finished program
 is released, not the source code.
 
-It uses Qt, libspecbleach and KISS FFT, which each have their own licence.
-You'll find those in the `licenses` folder of the download. The source of
-libspecbleach, as used, is attached to each release.
+It uses Qt, libspecbleach, codec2, RADE, Opus, the VST 3 SDK and KISS FFT,
+which each have their own licence. You'll find those in the `licenses`
+folder of the download. The source of libspecbleach and codec2, as used, is
+attached to each release.
 
-This app is not made or endorsed by JVCKENWOOD. TS-890S and KENWOOD are
+VST is a registered trademark of Steinberg Media Technologies GmbH. This
+app is not made or endorsed by JVCKENWOOD. TS-890S and KENWOOD are
 trademarks of JVCKENWOOD Corporation.
