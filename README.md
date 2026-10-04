@@ -12,9 +12,9 @@ server built in.**
 
 <br clear="left">
 
-![The front panel in version 2.2.2](docs/images/front-panel-v2.2.2.png)
+![The front panel](docs/images/front-panel-v2.2.2.png)
 
-*Version 2.2.2, as a new install opens it. Across the top: the analogue
+*The front panel as a new install opens it. Across the top: the analogue
 S-meter, the frequency, the clock, RIT/XIT and D.VOX, then power, MIC and
 DELAY over the filter scope. Below: the bandscope and waterfall, the
 radio's own keys and knobs, and the audio scope along the bottom.*
@@ -23,9 +23,31 @@ The keys, knobs and meters look and work like the ones on the radio. You
 can move, resize and hide the groups of controls, and save your own
 layouts. CAT control and audio go over the radio's USB cable. The bandscope
 comes over your network, because the USB serial link is too slow for a
-smooth scope.
+smooth scope. Or connect over the network alone, and use the radio from
+somewhere else.
 
-## New in 2.2.2
+## New in 2.3.0
+
+- **[Remote operation](#remote-operation-experimental)** (experimental):
+  use the radio from a laptop elsewhere, with the panel, bandscope and
+  audio both ways. A small **Remote Relay** at home, on a PC or a
+  Raspberry Pi, carries the radio's audio to you.
+- **[Fits your screen](#fits-your-screen)**: on a laptop, the app draws
+  itself smaller so the whole panel fits, with nothing overlapping.
+- **A new Connections window**, with status lamps along the top and its
+  settings in pages, and **View settings** for everything about how the
+  app looks. VIEW itself is now a short menu.
+- **Sharing CAT with a logger works better.** A program such as DXLab gets
+  the answers to its own questions only, can start before the app does,
+  and still follows the frequency while you tune.
+- **Fixes:** BC now cycles OFF, BC 1, BC 2; REF + and REF − were the wrong
+  way round; the Level out meter no longer freezes.
+
+The full list is in the
+[release notes](https://github.com/lmacc/Kenwood-TS-890-Client-TCI-Server-v2/releases/latest).
+
+<details>
+<summary><b>New in 2.2.2</b></summary>
 
 - **[The top of the radio's screen](#the-top-of-the-screen)** on yours: an
   analogue S-meter with a moving needle, the filter scope, the clock, and
@@ -42,14 +64,17 @@ smooth scope.
   **VIEW → Show hints**, and a new default layout.
 - A **user guide** with a contents page, bookmarks and an index.
 
-The full list is in the
-[release notes](https://github.com/lmacc/Kenwood-TS-890-Client-TCI-Server-v2/releases/latest).
+</details>
 
 ## What it does
 
 - **The radio's front panel on your screen.** VFOs, band keys from 1.8 to
   70 MHz, modes, filters, split, TF-SET, RIT/XIT, AGC, NR, NB, notch, the
   meters and the radio's own menu. It all stays in step with the rig.
+- **Remote operation** (experimental). Over the radio's own network port,
+  from another room or another country, with your voice through the
+  laptop's microphone.
+- **Fits your screen**, from a big monitor down to a 13-inch laptop.
 - **The top of the radio's screen.** Analogue or digital S-meter, filter
   scope, clock, RIT/XIT, D.VOX, power, MIC and DELAY.
 - **Bandscope and waterfall** over your network. Click to tune, drag to
@@ -75,16 +100,63 @@ The full list is in the
 - **TCI server.** Log4OM, WSJT-X, MSHV and other programs can follow the
   radio over TCI. The panel shows which ones are connected.
 - **CAT sharing (Windows only).** Share the radio's CAT port with another
-  program through a virtual serial port, so both work at the same time.
+  program, such as DXLab, through a virtual serial port, so both work at
+  the same time.
 - **Recorder**, **keyboard shortcuts** for every key, and a full
   [user guide](#the-user-guide).
 
 | | |
 |---|---|
-| ![Connections](docs/images/connections-microphone.png) | ![Working with Log4OM and WSJT-X](docs/images/tci-and-cat-sharing.png) |
-| All the setup in one window: COM port, audio, your microphone, bandscope, sharing and TCI. | Log4OM and WSJT-X following the radio. |
-| ![NR4](docs/images/nr4.png) | ![Key bindings](docs/images/key-bindings.png) |
-| NR4 noise reduction, with every setting explained. | Put any key on the keyboard. |
+| ![Connections](docs/images/connections-v2.3.png) | ![View settings](docs/images/view-settings.png) |
+| All the setup in one window: a lamp for each link along the top, and pages for the radio, audio, microphone, network, and sharing and TCI. | View settings: the panel, its clusters, your layouts, the display size and the panes. |
+| ![Working with Log4OM and WSJT-X](docs/images/tci-and-cat-sharing.png) | ![NR4](docs/images/nr4.png) |
+| Log4OM and WSJT-X following the radio. | NR4 noise reduction, with every setting explained. |
+| ![Key bindings](docs/images/key-bindings.png) | |
+| Put any key on the keyboard. | |
+
+## Remote operation (experimental)
+
+Use your radio from somewhere else: a laptop in another room, or one at the
+other end of the country. You get the same front panel, bandscope, meters
+and audio as at home, and you talk through the laptop's microphone or
+headset. Set **Connect over** in Connections to **Network**, and the radio's
+own network port carries everything instead of the USB cable.
+
+From outside your home, two more things are needed:
+
+![How remote operation fits together](docs/images/remote-operation.png)
+
+- **[Tailscale](https://tailscale.com)**, free, on the laptop and on a
+  computer at home. It joins them over the internet as if they were on the
+  same network, encrypted, with nothing opened on your home router.
+- **The TS-890S Remote Relay**, a small program that comes with the app, on
+  that computer at home. The radio only sends its audio to a computer on its
+  own network, so the relay receives it there and passes it on to the
+  laptop, with the laptop's transmit audio going the other way. Without it,
+  control works from outside but there's no sound.
+
+The relay lets the radio check your KNS login itself, serves one laptop at a
+time, and frees the radio when you disconnect. **If the laptop's connection
+drops while you're transmitting, the relay sends the radio to receive.**
+
+The computer at home can be the shack PC, where the installer can start the
+relay with Windows, or a **Raspberry Pi**, which uses a few watts and starts
+the relay by itself at every boot. The user guide's chapter on remote
+operation goes through it all step by step, including the delays to expect
+and how to keep it safe. Try it into a dummy load first.
+
+## Fits your screen
+
+The app's layouts are arranged on a big monitor. On a smaller screen, such
+as a laptop, which Windows usually also enlarges by 125 or 150 %, they
+wouldn't fit. So the app fits itself:
+
+- **On a new install**, it measures the screen and, if needed, draws itself
+  smaller and restarts once. The whole panel opens in its arrangement, just
+  smaller, with nothing overlapping or cut off.
+- **On an existing install** moved to a smaller screen, it offers to.
+- **Any time**: **VIEW → View settings → Display & window → Fit to this
+  screen**, or choose a size by hand.
 
 ## The top of the screen
 
@@ -336,8 +408,13 @@ means Log4OM has it.*
 > info**, then **Run anyway**.
 
 The first time you run it, the Connections window opens and the app looks
-for the radio's COM port by itself. Then set the radio's IP address for the
-bandscope, and tick **Audio in**.
+for the radio's COM port by itself. Then, on the **Network** page, set the
+radio's IP address for the bandscope, and on the **Audio** page tick
+**Audio in**.
+
+On the installer's tasks page there's also a tick box to **start the TS-890S
+Remote Relay with Windows**. Only tick it on the computer at the radio, and
+only if you'll operate from outside your home. It's off by default.
 
 > **No frequency showing?** The radio has two COM ports and only one of
 > them works for control. Press **Find radio** in **RADIO → Connections**
@@ -385,6 +462,29 @@ like `cu.SLAB_USBtoUART` or `cu.usbserial-…`. If it picks the wrong one,
 press **Find radio**. To update later, drag the new version over the old
 one. Your settings are kept.
 
+### Raspberry Pi, for the Remote Relay (new in 2.3.0)
+
+Only needed for [remote operation](#remote-operation-experimental), if you'd
+rather leave a Raspberry Pi on at home than a PC. It runs the relay, not the
+app.
+
+1. From the
+   [latest release](https://github.com/lmacc/Kenwood-TS-890-Client-TCI-Server-v2/releases/latest),
+   download **`TS-890S-Remote-Relay-raspberry-pi.tar.gz`** and copy it to
+   the Pi.
+2. On the Pi, using your radio's address in the last line:
+   ```
+   tar xzf TS-890S-Remote-Relay-raspberry-pi.tar.gz
+   cd ts890-remote-relay
+   sudo sh install.sh 192.168.1.171
+   ```
+3. It starts at once, and at every boot. The last lines show the Pi's
+   Tailscale address, which goes in **Host** on the laptop.
+
+Needs a Raspberry Pi 2 or later (including the Pi Zero 2 W) with Raspberry
+Pi OS, 32-bit or 64-bit, and Tailscale. The README in the package and the
+user guide have the commands for stopping, starting and reading its log.
+
 ### What it runs on
 
 | | Windows | Mac |
@@ -403,6 +503,10 @@ You also need:
 - For the bandscope over the network: the radio on your network, and the
   KNS user name and password set on the radio. Everything else works
   without it, just with a slower bandscope over USB.
+- For remote operation: no USB cable on the laptop. The radio on your home
+  network with its KNS and built-in VoIP switched on and, from outside your
+  home, Tailscale and the Remote Relay. See
+  [Remote operation](#remote-operation-experimental).
 
 On a Mac there's no CAT sharing. Use the TCI server to connect other
 programs instead. The logbook works with Mac loggers that take QSOs from
@@ -418,8 +522,13 @@ what it covers:
 
 - **Setup in one window.** COM port, audio, microphone, bandscope and
   sharing are all in the Connections window, which opens by itself the
-  first time. **Find radio** picks the right COM port for you. If the
-  bandscope is ever empty, it tells you why.
+  first time, with a lamp for each link and a page for each subject. **Find
+  radio** picks the right COM port for you. If the bandscope is ever empty,
+  it tells you why.
+- **Remote operation.** How it works and why the Remote Relay is needed,
+  what you need at home and away, setting it up step by step on a PC or a
+  Raspberry Pi, the commands for running the relay, the delays to expect,
+  and keeping it safe.
 - **The top of the screen.** The S-meter and its three looks, the METER
   key, the filter scope, setting the clock, and the TCI readout.
 - **Tuning.** Drag the knob, use the mouse wheel (hold Shift for small
@@ -454,8 +563,8 @@ what it covers:
 - **The radio's menu.** Every setting shows the radio's own menu number, and
   you can search it. Type *115200* and it finds the baud rate.
 - **Make it yours.** Move, resize and hide the groups of controls, save
-  layouts, lock the window size, turn hints off, and put any key on the
-  keyboard.
+  layouts, fit the app to your screen, lock the window size, turn hints off,
+  and put any key on the keyboard. View settings has it all in one place.
 - **Troubleshooting.** A table that goes from the problem to the most
   likely cause.
 
