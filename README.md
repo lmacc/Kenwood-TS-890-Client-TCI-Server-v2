@@ -82,8 +82,13 @@ somewhere else.
   or any other logger in both directions.
 - **Statistics and a world map** of everything you have worked and
   confirmed.
+- **Awards**: how far you have got with DXCC, WAZ, WAS, WAC, WPX, IOTA and
+  the parks and summits, worked and confirmed.
+- **A duplicate finder** that tidies up QSOs logged twice, and a **daily
+  backup** of your logbook and settings.
 - **Contests**: every contest ADIF knows, the exchange filled in from the
-  call, serial numbers, dupes, Cabrillo, and a contest calendar.
+  call, serial numbers, dupes, a running tally, Cabrillo, and a contest
+  calendar.
 - **QRZ.com and Logbook of the World**: look up the station, send your
   QSOs, and bring the confirmations back.
 
@@ -112,6 +117,10 @@ somewhere else.
 - **CAT sharing (Windows only).** Share the radio's CAT port with another
   program, such as DXLab, through a virtual serial port.
 - **Fits your screen**, from a big monitor down to a 13-inch laptop.
+- **Transmit safety.** If the app ever stops responding while you are
+  transmitting, the radio is sent back to receive.
+- **Tells you when there's a new version**, once a day, with the download
+  one click away in ABOUT. You can switch it off.
 - **Recorder**, **keyboard shortcuts** for every key, and a full
   [user guide](#the-user-guide).
 
@@ -162,6 +171,26 @@ The map is drawn from Natural Earth at 1:10 million, so coasts and small
 islands are shown in detail, and it zooms in far enough to show state and
 county lines.
 
+**The Awards tab** shows how far you have got with DXCC, WAZ (the 40 CQ
+zones), WAS (the 50 US states), WAC (the six continents), WPX, IOTA, and the
+POTA, SOTA and WWFF references in your log. Each is counted as worked and
+confirmed. The zones, states and continents are drawn as grids, green when
+confirmed, amber when worked and dark when still needed. The islands and
+parks are listed underneath. Like everything else in the Logbook, the awards
+follow the filters, so 20m and CW gives you WAS on 20 metres CW. If some of
+your US QSOs have no state, it tells you how many, and EDIT lets you add it.
+
+- **DUPLICATES** finds QSOs that are in the log more than once: the same
+  call, band and kind of mode within ten minutes. Each group shows which
+  copy it keeps (the most confirmed, then your logger's, then the fullest).
+  The spares are deleted only when you say so. A copy that also lives in
+  your logging program is left alone, because it would come straight back.
+- **A backup every day.** Your logbook and settings are copied once a day to
+  a *backups* folder beside them, and the newest ten are kept. **RADIO → Back
+  up settings and logbook now** makes one straight away, and **RADIO → Open
+  the backups folder** shows where they are. The user guide explains how to
+  restore one.
+
 ## Logging a QSO
 
 Press **Ctrl+L** anywhere in the app, or **NEW QSO** in the Logbook, and
@@ -211,6 +240,10 @@ first QSO; a station already worked in the contest would be marked DUPE.*
   them.
 - **The time is stamped** the moment you save, and **Enter** saves the QSO
   and opens the next one straight away.
+- **A running tally** under the exchange shows the contest so far: QSOs,
+  bands, countries, zones and prefixes, and your rate over the last hour
+  and the last ten minutes. It counts but doesn't score, because every
+  contest scores in its own way.
 - **No QRZ.com lookups** while you contest: no waiting, and your own log is
   still checked for dupes.
 
@@ -688,8 +721,10 @@ only if you'll operate from outside your home. It's off by default.
 > using the port, or if the radio's CAT speed (menu 7-00) isn't 115200.
 
 Installing over an older version updates it, and your settings, layouts and
-logbook are kept. To remove it, use **Settings → Apps** like any other
-program.
+logbook are kept. The app checks once a day for a newer version. When there
+is one, the lamp on **ABOUT** lights and the About box has a **DOWNLOAD**
+key. Only the app's name and version are sent to GitHub to ask. To remove
+it, use **Settings → Apps** like any other program.
 
 **Don't want to install it?** There's also a portable **`…-win64.zip`**.
 Right-click it and choose **Extract All** first, then run `ts890-usb.exe`
@@ -728,6 +763,10 @@ for the radio's port by itself. The radio's USB ports show up with names
 like `cu.SLAB_USBtoUART` or `cu.usbserial-…`. If it picks the wrong one,
 press **Find radio**. To update later, drag the new version over the old
 one. Your settings are kept.
+
+The radio's network login, like your QRZ.com and LoTW logins, is kept in
+your Keychain. After installing a new version, macOS may ask once whether
+TS-890S Desktop can use it. Choose **Always Allow**.
 
 ### Raspberry Pi, for the Remote Relay
 
@@ -805,10 +844,10 @@ covers every window and key, with a picture of each:
   TF-SET, the bandscope and the audio scope, NR4, and making the layout
   yours.
 - **CW, RTTY, PSK31, FT8, the microphone, FreeDV and plugins.**
-- **Logging**: the Log QSO window, the Logbook with its statistics and map,
-  and linking it to your logger both ways.
-- **Contests**: the exchange, serial numbers, dupes, Cabrillo and the
-  calendar.
+- **Logging**: the Log QSO window, the Logbook with its statistics, map and
+  awards, finding duplicates, and linking it to your logger both ways.
+- **Contests**: the exchange, serial numbers, dupes, the running tally,
+  Cabrillo and the calendar.
 - **QSL services, the PSK map, the DX cluster and propagation.**
 - **Listening**: the broadcast schedule, bookmarks and scanning, the
   listening log, signal history and recording at set times.
@@ -817,8 +856,9 @@ covers every window and key, with a picture of each:
 - **Remote operation**, step by step on a PC or a Raspberry Pi, with
   updating the relay, low data, the link readout and keeping it safe.
 - **The radio's menu**, **keyboard shortcuts**, where your settings live,
-  and a **troubleshooting** table that goes from the problem to the most
-  likely cause.
+  **backups and restoring one**, **keeping up to date**, **transmit
+  safety**, and a **troubleshooting** table that goes from the problem to
+  the most likely cause.
 
 ## Support
 
