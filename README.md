@@ -27,10 +27,20 @@ comes over your network, because the USB serial link is too slow for a
 smooth scope. Or connect over the network alone, and use the radio from
 somewhere else.
 
-> **Version 2.4 replaces every earlier release.** If you have an older
-> version, install this one over it: your settings, layouts and logbook are
-> kept. If you use the Remote Relay at home, update that too (see
-> [Remote operation](#remote-operation-experimental)).
+> **Version 2.4.4 replaces every earlier release.** Run its installer and it
+> removes the version you have and puts itself in its place: your settings,
+> layouts and logbook are kept. Updates only go forward, so everyone is on
+> the same version. If you use the Remote Relay at home, update that too
+> (see [Remote operation](#remote-operation-experimental)).
+
+**New in 2.4.4:** a [CW decoder rebuilt](#reading-cw) to copy like a
+skimmer, with callsigns checked against the Super Check Partial list, words
+coloured as they are read and the stations it hears named on the bandscope;
+[Reverse Beacon Network skimmers](#the-dx-cluster) straight on the
+bandscope; [calls to watch for](#calls-to-watch-for); the
+[frequency display](#the-frequency-display) as the radio shows it, with CW
+TUNE and the antenna tuner; FINE tuning in 1 Hz steps; and a clearer
+[duplicate finder](#the-logbook).
 
 ## Contents
 
@@ -38,14 +48,15 @@ somewhere else.
 - [The logbook](#the-logbook) · [Logging a QSO](#logging-a-qso) ·
   [Contests](#contests) · [QSL services](#qsl-services-qrzcom-and-logbook-of-the-world) ·
   [Who is hearing me](#who-is-hearing-me-the-psk-map)
-- [The DX cluster](#the-dx-cluster) · [Propagation](#propagation)
+- [The DX cluster](#the-dx-cluster) ·
+  [Calls to watch for](#calls-to-watch-for) · [Propagation](#propagation)
 - [Listening](#listening-broadcasts-bookmarks-and-logs) ·
   [Data decoders](#data-decoders)
 - [Remote operation](#remote-operation-experimental) ·
   [Fits your screen](#fits-your-screen) · [The top of the screen](#the-top-of-the-screen)
 - [Talk through the computer](#talk-through-the-computer) ·
   [FreeDV](#freedv-digital-voice) · [VST 3 plugins](#vst-3-plugins)
-- [CW, RTTY and PSK31](#cw-rtty-and-psk31) ·
+- [CW, RTTY and PSK31](#cw-rtty-and-psk31) · [Reading CW](#reading-cw) ·
   [Band plans](#band-plans-for-5-mhz-and-70-mhz) · [Log4OM over TCI](#log4om-over-tci)
 - [Download and install](#download-and-install) ·
   [The user guide](#the-user-guide) · [Support](#support)
@@ -57,14 +68,20 @@ somewhere else.
 - **The radio's front panel on your screen.** VFOs, band keys from 1.8 to
   70 MHz, modes, filters, split, TF-SET, RIT/XIT, AGC, NR, NB, notch, the
   meters and the radio's own menu. It all stays in step with the rig.
-- **The top of the radio's screen.** Analogue or digital S-meter, filter
-  scope, clock, RIT/XIT, D.VOX, power, MIC and DELAY.
+- **The top of the radio's screen.** Analogue or digital S-meter, the
+  frequency display laid out as the radio's, filter scope, clock, RIT/XIT,
+  D.VOX, power, MIC and DELAY.
+- **Tuning to the hertz.** FINE gives 1 Hz steps, as on the radio, and the
+  tuning knob follows the mouse smoothly.
 - **Bandscope and waterfall** over your network. Click to tune, drag to
   tune, markers, drag the filter edges, and band plans for 5 and 70 MHz.
 - **Audio scope.** See your receive and transmit audio, with peak and
   average traces, THD and S/N readings.
 - **NR4 noise reduction** on the computer, on top of the radio's own NR.
-- **CW, RTTY and PSK31.** Decode and send, with F1 to F8 macros.
+- **CW, RTTY and PSK31.** Decode and send, with F1 to F8 macros. The CW
+  decoder copies like a skimmer: it finds the station's tone, follows the
+  speed, puts words right, colours callsigns and CW words, and names the
+  stations it hears on the bandscope.
 - **Talk through the computer.** Plug a headset into the PC and hold MIC
   or F12 to talk.
 - **FreeDV digital voice.** RADE, 700D, 700E and 1600, receive and
@@ -96,8 +113,11 @@ somewhere else.
 
 - **Who is hearing me**: everyone who has reported your signal to PSK
   Reporter, on a map.
-- **DX cluster** from Spothole and the telnet clusters, with new countries
-  picked out and spots on the bandscope.
+- **DX cluster** from Spothole, the telnet clusters and the Reverse Beacon
+  Network's skimmers, with new countries picked out and spots on the
+  bandscope.
+- **Calls to watch for**: be told the moment a friend, a needed station or
+  a DXpedition is spotted, decoded in FT8 or heard in CW.
 - **Propagation**: space weather, HF and VHF conditions, live ionosondes
   and tropospheric ducting.
 
@@ -120,7 +140,8 @@ somewhere else.
 - **Transmit safety.** If the app ever stops responding while you are
   transmitting, the radio is sent back to receive.
 - **Tells you when there's a new version**, once a day, with the download
-  one click away in ABOUT. You can switch it off.
+  one click away in ABOUT, and keeps the CW decoder's callsign list up to
+  date. You can switch each off.
 - **Recorder**, **keyboard shortcuts** for every key, and a full
   [user guide](#the-user-guide).
 
@@ -180,11 +201,32 @@ parks are listed underneath. Like everything else in the Logbook, the awards
 follow the filters, so 20m and CW gives you WAS on 20 metres CW. If some of
 your US QSOs have no state, it tells you how many, and EDIT lets you add it.
 
-- **DUPLICATES** finds QSOs that are in the log more than once: the same
-  call, band and kind of mode within ten minutes. Each group shows which
-  copy it keeps (the most confirmed, then your logger's, then the fullest).
-  The spares are deleted only when you say so. A copy that also lives in
-  your logging program is left alone, because it would come straight back.
+![The Awards tab](docs/images/logbook-awards.png)
+
+*The Awards tab for 7,685 QSOs: 189 DXCC, 38 of the 40 CQ zones, 39 of the
+50 states and all six continents, with the islands listed underneath.
+Green is confirmed, amber worked, dark still needed.*
+
+**DUPLICATES** finds QSOs that are in the log more than once: the same
+call, band and kind of mode within ten minutes. Each QSO logged more than
+once is shown as a group, with the copy to keep marked **KEEP**: the one
+with the most confirmations, or else the most details filled in. Each spare
+copy says where to delete it:
+
+- **delete**: a copy made in this app or imported from a file. These are
+  already selected, so **DELETE SELECTED** removes them, after one more
+  question. One copy of each QSO always stays.
+- **delete in Log4OM** (or whichever logger you use): a duplicate inside
+  your logger's own log. Delete it there, and it disappears from here by
+  itself. It can't be deleted here, because the logger link would bring it
+  straight back.
+
+![The Duplicates window](docs/images/logbook-duplicates.png)
+
+*A log kept in Log4OM. Every spare copy here is a duplicate inside Log4OM
+itself, so each is marked "delete in log4om" and there is nothing to delete
+in this window.*
+
 - **A backup every day.** Your logbook and settings are copied once a day to
   a *backups* folder beside them, and the newest ten are kept. **RADIO → Back
   up settings and logbook now** makes one straight away, and **RADIO → Open
@@ -308,18 +350,49 @@ Double-click a spot to tune to it.
 shows the distance and bearing, who spotted it and when, with TUNE, SPOT IT
 and QRZ. Under it is the box for sending a spot of your own.*
 
-- **Spots from Spothole**, which gathers the DX cluster network, the
-  Reverse Beacon Network's skimmers and the POTA, SOTA and WWFF
-  programmes, and from **telnet cluster nodes**, as many as you like. A
-  node on **standby** takes over by itself if Spothole can't be reached.
+- **Spots from Spothole**, which gathers the DX cluster network and the
+  POTA, SOTA and WWFF programmes, and from **telnet cluster nodes**, as
+  many as you like. A node on **standby** takes over by itself if Spothole
+  can't be reached.
+- **The Reverse Beacon Network**, straight from its own server: receivers
+  around the world, called skimmers, that decode CW and RTTY and report
+  every station they hear calling. **Skimmers in** keeps only the skimmers
+  on your continent (to start with), in your country, or anywhere, so the
+  stations named are ones you can probably hear.
 - **Filters** for band, mode (CW, phone, data), activity (DX, POTA, SOTA,
   WWFF and others), **new countries only**, skimmers, and a search.
 - **New ones stand out**: a country you have never worked is amber, and one
   you have worked but not on this band is cyan, as on the bandscope.
-- **ON SCOPE** names the last half hour's spots on the bandscope.
+- **ON SCOPE** names the last half hour's spots on the bandscope. Turn on
+  **SKIMMERS** as well, and the bandscope fills with the stations the
+  skimmers hear calling right now.
 - The same station spotted again stays on one row, with a count.
 - **Send a spot** of your own through a telnet node, after a confirmation.
   **FROM RADIO** fills in the frequency.
+
+![Callsigns on the bandscope](docs/images/bandscope-skimmers.png)
+
+*40 m with ON SCOPE and SKIMMERS lit: each spotted station is named on the
+bandscope above its signal, following the window's filters. HF0PAS in
+Antarctica is a new country, so it is amber on the bandscope as well as in
+the list.*
+
+## Calls to watch for
+
+To be told when a particular station turns up (a friend, a station you
+need, a DXpedition), type its call under **Calls to watch for** in **RADIO →
+Alerts**. Put spaces between calls. A **\*** stands for any letters, so
+*VP8\** is every call starting VP8, and a call also matches with /P, /M or
+a prefix added. You're told the moment a watched call is:
+
+- spotted on the DX cluster, or heard by a Reverse Beacon Network skimmer;
+- decoded in FT8;
+- heard by the CW decoder giving its call.
+
+The alert goes in the status bar, with a sound and a small window if you
+want them. For a cluster spot, the window has a **Tune** key that takes the
+radio straight there. Each call is alerted once per band in half an hour,
+so a busy station doesn't keep interrupting you.
 
 ## Propagation
 
@@ -466,6 +539,30 @@ Across the top of the panel are the readouts the radio has across the top
 of its own screen. Each one is a group of its own, so you can move it,
 resize it or hide it, like any other part of the panel.
 
+### The frequency display
+
+The frequency display shows what the radio shows around its own frequency
+readout, laid out the same way.
+
+![The frequency display](docs/images/frequency-display.png)
+
+*CW with SPLIT on. Along the top: ANT 1, AGC-M, PRE OFF, ATT OFF and AT▸T,
+the antenna tuner in line. VFO A is on 7.024.134 in CW and VFO B on
+7.131.100 in LSB, with the TX box beside B, the VFO you transmit on. Along
+the bottom: VFO, SPLIT and the offset between the two, and CW TUNE
+flashing while the radio's CW auto-tune works.*
+
+| Part | What it shows |
+|---|---|
+| **Top line** | ANT, AGC, PRE and ATT all the time, greyed when off. After them, only while they're on: the antenna tuner, RX ANT, NR, NB1, NB2, NOTCH, BC, PROC, RX EQ, TX EQ and MAX-Po. |
+| **The antenna tuner** | **AT▸T** when the radio's tuner is in line for transmitting, and **R◂AT▸T** when it's in line for receiving too, as the radio shows it. It flashes while the tuner is tuning. |
+| **VFO A and VFO B** | Each frequency with its mode and band memory, such as *CW BAND 1*. A **TX** box marks the VFO you transmit on, filled in red while you transmit. |
+| **Bottom line** | VFO, or the memory channel; SPLIT and the offset between the VFOs (ΔF); and TF-SET, RIT, XIT and LOCK while they're on. |
+| **CW TUNE** | Flashes on the right of the bottom line while the radio's CW auto-tune (the **CW T.** key) is working. |
+
+**FINE**, beside the tuning knob, tunes in **1 Hz** steps. It's the radio's
+own FINE, so press it here or on the radio and both follow.
+
 ### The S-meter
 
 The S-meter looks and moves like the analogue meter on the radio. While you
@@ -530,7 +627,6 @@ server, so setting it by hand is greyed out.*
 
 | Readout | What it shows |
 |---|---|
-| **Frequency** | VFO A and VFO B, the mode, and SPLIT, RIT, XIT and LOCK when they are on. |
 | **RIT / XIT** | Whether RIT and XIT are on, and the offset: 0.000 when there is none. |
 | **D.VOX** | Whether DATA VOX is on, and which input it listens to. |
 | **Power / MIC / DELAY** | Your transmit power, microphone gain and delay, for example "5W MIC: 23 DELAY: 3". |
@@ -649,6 +745,50 @@ boxes, the F1 to F8 macro keys, EDIT and LOG.*
 Then press **LOG** beside the macros, or Ctrl+L: the QSO opens with their
 call, your report and their signal already in. Press it again to save.
 
+### Reading CW
+
+The CW decoder was rebuilt for 2.4.4 to copy the way a CW skimmer does.
+The copy appears about one character behind the sender. When there's only
+noise, it prints nothing.
+
+![CW copy, coloured as it is read](docs/images/cw-decoder-colours.png)
+
+*CW on 40 m. CQ, DX, DE, TU and the other CW words are blue, and the
+callsigns are orange. Words the decoder doesn't recognise stay green.*
+
+- **Any speed, any fist.** It finds the speed by itself, from about 8 to
+  45 wpm, and follows it as it changes, so hand-sent CW with uneven spacing
+  copies as well as a keyer.
+- **No need to tune exactly.** It finds the station's own tone, up to
+  100 Hz either side of your CW pitch, and follows it if it drifts.
+- **Whole words, put right.** Two words run together are split (*TUEC6AAE*
+  becomes *TU EC6AAE*), and a callsign or word sent with a gap is joined
+  (*EI5 GJB* becomes *EI5GJB*). So the last word may change a moment after
+  it appears.
+- **Real callsigns.** It checks calls against the Super Check Partial list
+  of calls heard on the air, which the app downloads and keeps up to date
+  by itself.
+
+| Colour | What it means |
+|---|---|
+| **Red, bold** | A callsign on the Super Check Partial list. |
+| **Orange** | Something shaped like a callsign that isn't on the list: a new call, or one misread. |
+| **Blue** | A CW abbreviation, Q-code or report: CQ, DE, TU, QTH, 5NN… |
+| **White** | A first name. |
+| **Grey** | A letter the decoder is unsure of. Worth a second look. |
+| **Green** | Everything else. |
+
+**Who is on the frequency.** When the station you're listening to gives
+its call (after DE, CQ, TEST or TU, or sent twice), the call is written on
+the bandscope at that frequency for 15 minutes. As you tune across the
+band, the bandscope fills in with who is where. A call that isn't on the
+list is only labelled once it's been heard twice, so one misreading never
+puts a wrong call there. **LABELS**, on the decode pane's status line,
+turns the labels off and on.
+
+**CW T.** starts the radio's own CW auto-tune, which puts the radio exactly
+on the station. **CW TUNE** flashes on the frequency display while it works.
+
 ## Band plans for 5 MHz and 70 MHz
 
 Choose your country under **RADIO → Band plan**: Ireland, the UK or the
@@ -720,16 +860,20 @@ only if you'll operate from outside your home. It's off by default.
 > and the app picks the right one. It also tells you if another program is
 > using the port, or if the radio's CAT speed (menu 7-00) isn't 115200.
 
-Installing over an older version updates it, and your settings, layouts and
-logbook are kept. The app checks once a day for a newer version. When there
-is one, the lamp on **ABOUT** lights and the About box has a **DOWNLOAD**
-key. Only the app's name and version are sent to GitHub to ask. To remove
-it, use **Settings → Apps** like any other program.
+**Updating:** run the new version's installer. It removes the version you
+have first, so there's only ever one copy on the computer, and your
+settings, layouts and logbook are kept. Updates only go forward: an older
+version won't install over a newer one. From 2.4.4 the installer is the
+only Windows download; there's no portable zip.
 
-**Don't want to install it?** There's also a portable **`…-win64.zip`**.
-Right-click it and choose **Extract All** first, then run `ts890-usb.exe`
-from the folder you extracted. If you run it from inside the zip it can't
-find its files and stops with *"Qt6Core.dll was not found"*.
+The app checks once a day for a newer version. When there is one, the lamp
+on **ABOUT** lights and the About box has a **DOWNLOAD** key. Only the
+app's name and version are sent to GitHub to ask. The same part of the
+About box keeps the CW decoder's callsign list up to date.
+
+<img src="docs/images/about-updates.png" alt="The Updates part of the About box" width="420">
+
+To remove the app, use **Settings → Apps** like any other program.
 
 ### Mac
 
@@ -806,7 +950,7 @@ user guide have the commands for stopping, starting and reading its log.
 |---|---|---|
 | **System** | Windows 10 or 11, 64-bit | macOS 13 Ventura or later (13, 14 Sonoma, 15 Sequoia, 26 Tahoe) |
 | **Computer** | Any 64-bit PC | Apple silicon Macs (M1, M2, M3, M4 and newer) and Intel Macs. One download works on both. |
-| **Download** | `…-setup.exe`, or the portable `…-win64.zip` | `…-macos.dmg` |
+| **Download** | `…-setup.exe` | `…-macos.dmg` |
 | **Won't run on** | Windows 7 or 8, or 32-bit Windows | macOS 12 or older. That includes older Intel Macs that can't update past macOS 12. |
 
 You also need:
@@ -843,12 +987,14 @@ covers every window and key, with a picture of each:
 - **The panel**: the top of the screen, tuning, band stacks, split and
   TF-SET, the bandscope and the audio scope, NR4, and making the layout
   yours.
-- **CW, RTTY, PSK31, FT8, the microphone, FreeDV and plugins.**
+- **CW, RTTY, PSK31, FT8, the microphone, FreeDV and plugins**, with
+  reading CW, its colours and callsign labels, and calls to watch for.
 - **Logging**: the Log QSO window, the Logbook with its statistics, map and
   awards, finding duplicates, and linking it to your logger both ways.
 - **Contests**: the exchange, serial numbers, dupes, the running tally,
   Cabrillo and the calendar.
-- **QSL services, the PSK map, the DX cluster and propagation.**
+- **QSL services, the PSK map, the DX cluster with the Reverse Beacon
+  Network, and propagation.**
 - **Listening**: the broadcast schedule, bookmarks and scanning, the
   listening log, signal history and recording at set times.
 - **The data decoders**: DSC, ALE, HFDL and the aircraft map, SELCAL,
@@ -874,7 +1020,8 @@ If it's earned a place in your shack, a coffee keeps it going. There's a
 ## Licence
 
 Free to use, on as many computers as you like, and free to pass on as long
-as you pass on the complete download unchanged, but it's not for sale. The
+as you pass on the installer unchanged, but it's not for sale. Licence keys
+are personal to the donor. The
 full terms are in `LICENSE.txt` in the download. Only the finished program
 is released, not the source code.
 
@@ -884,7 +1031,8 @@ folder of the download. The source of libspecbleach and codec2, as used, is
 attached to each release.
 
 Map data from Natural Earth. Broadcast schedules from EiBi. Spots from
-Spothole and the DX cluster network. Reports from PSK Reporter. Space
+Spothole, the DX cluster network and the Reverse Beacon Network. Callsigns
+for the CW decoder from Super Check Partial (supercheckpartial.com). Reports from PSK Reporter. Space
 weather from NOAA and HAMQSL.com (N0NBH), ionosondes from GIRO and NOAA by
 way of KC2G, and the weather model from Open-Meteo.
 
