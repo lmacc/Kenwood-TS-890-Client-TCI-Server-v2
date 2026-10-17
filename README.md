@@ -27,13 +27,18 @@ comes over your network, because the USB serial link is too slow for a
 smooth scope. Or connect over the network alone, and use the radio from
 somewhere else.
 
-> **Version 2.4.5 replaces every earlier release.** Run its installer and it
+> **Version 2.4.6 replaces every earlier release.** Run its installer and it
 > removes the version you have and puts itself in its place: your settings,
 > layouts and logbook are kept. Updates only go forward, so everyone is on
 > the same version. If you use the Remote Relay at home, update that too
 > (see [Remote operation](#remote-operation-experimental)).
 
-**New in 2.4.5:** [band plans](#band-plans) for Ireland, the UK, the USA,
+**New in 2.4.6:** [tune the remote receivers](#remote-receivers-hear-yourself-from-far-away)
+on their own, up and down their bands, with their own frequency, steps,
+mode and a list of the amateur and broadcast bands, as on a KiwiSDR's own
+page; and smoother audio from them.
+
+**In 2.4.5:** [band plans](#band-plans) for Ireland, the UK, the USA,
 Canada, Australia and all three IARU regions on every HF band, with up to
 four other countries' plans shown under your own; and
 [remote receivers](#remote-receivers-hear-yourself-from-far-away): listen
@@ -429,12 +434,21 @@ Below the list, the receiver's waterfall with your R and T markers.*
   two later, you hear your own signal as that part of the world hears it,
   and see it rise on the **SIGNAL THERE** meter. **Follow the dial** listens
   where your radio listens, to compare.
+- **Or tune it on its own.** **Tune it here** lets go of your radio: type a
+  frequency, step up and down from 10 Hz to 10 kHz, choose LSB, USB, CW, AM
+  or FM, or pick a band from the list, the amateur bands from 160 m to 10 m
+  and the broadcast bands from LW and MW up to 11 m. Choosing a band widens
+  the waterfall to show all of it. On the waterfall a click, the mouse wheel
+  or a drag tunes the receiver.
 - **Find the right one.** Nearest first, with each receiver's country,
   distance and direction, how many are listening, its signal-to-noise and
   its antenna. Pick a country, show only receivers with a **FREE SLOT** or
   that cover **THIS BAND**, or search for a place, a callsign or an antenna.
 - **Its own waterfall**, drawn like your radio's bandscope, from 30 MHz
-  wide down to 1.8 kHz. Click it to tune your radio there.
+  wide down to 1.8 kHz. Click it to tune your radio there, or the receiver
+  alone with Tune it here.
+- **Smooth audio.** A short reserve and its own playing thread ride out the
+  bursts and gaps of audio over the internet.
 - **Filter** copies your radio's own filter, or choose a width. **QUIET
   RADIO** silences your own radio while you listen.
 - **REC** records what the receiver plays to a WAV file.
