@@ -27,20 +27,20 @@ comes over your network, because the USB serial link is too slow for a
 smooth scope. Or connect over the network alone, and use the radio from
 somewhere else.
 
-> **Version 2.4.4 replaces every earlier release.** Run its installer and it
+> **Version 2.4.5 replaces every earlier release.** Run its installer and it
 > removes the version you have and puts itself in its place: your settings,
 > layouts and logbook are kept. Updates only go forward, so everyone is on
 > the same version. If you use the Remote Relay at home, update that too
 > (see [Remote operation](#remote-operation-experimental)).
 
-**New in 2.4.4:** a [CW decoder rebuilt](#reading-cw) to copy like a
-skimmer, with callsigns checked against the Super Check Partial list, words
-coloured as they are read and the stations it hears named on the bandscope;
-[Reverse Beacon Network skimmers](#the-dx-cluster) straight on the
-bandscope; [calls to watch for](#calls-to-watch-for); the
-[frequency display](#the-frequency-display) as the radio shows it, with CW
-TUNE and the antenna tuner; FINE tuning in 1 Hz steps; and a clearer
-[duplicate finder](#the-logbook).
+**New in 2.4.5:** [band plans](#band-plans) for Ireland, the UK, the USA,
+Canada, Australia and all three IARU regions on every HF band, with up to
+four other countries' plans shown under your own; and
+[remote receivers](#remote-receivers-hear-yourself-from-far-away): listen
+on more than 900 KiwiSDRs and UberSDRs around the world, following your
+radio, so you can hear and see your own signal as other people do. Also a
+tidier RADIO menu, and working windows that no longer stay in front of the
+panel.
 
 ## Contents
 
@@ -50,14 +50,15 @@ TUNE and the antenna tuner; FINE tuning in 1 Hz steps; and a clearer
   [Who is hearing me](#who-is-hearing-me-the-psk-map)
 - [The DX cluster](#the-dx-cluster) ·
   [Calls to watch for](#calls-to-watch-for) · [Propagation](#propagation)
-- [Listening](#listening-broadcasts-bookmarks-and-logs) ·
+- [Remote receivers](#remote-receivers-hear-yourself-from-far-away) ·
+  [Listening](#listening-broadcasts-bookmarks-and-logs) ·
   [Data decoders](#data-decoders)
 - [Remote operation](#remote-operation-experimental) ·
   [Fits your screen](#fits-your-screen) · [The top of the screen](#the-top-of-the-screen)
 - [Talk through the computer](#talk-through-the-computer) ·
   [FreeDV](#freedv-digital-voice) · [VST 3 plugins](#vst-3-plugins)
 - [CW, RTTY and PSK31](#cw-rtty-and-psk31) · [Reading CW](#reading-cw) ·
-  [Band plans](#band-plans-for-5-mhz-and-70-mhz) · [Log4OM over TCI](#log4om-over-tci)
+  [Band plans](#band-plans) · [Log4OM over TCI](#log4om-over-tci)
 - [Download and install](#download-and-install) ·
   [The user guide](#the-user-guide) · [Support](#support)
 
@@ -74,7 +75,8 @@ TUNE and the antenna tuner; FINE tuning in 1 Hz steps; and a clearer
 - **Tuning to the hertz.** FINE gives 1 Hz steps, as on the radio, and the
   tuning knob follows the mouse smoothly.
 - **Bandscope and waterfall** over your network. Click to tune, drag to
-  tune, markers, drag the filter edges, and band plans for 5 and 70 MHz.
+  tune, markers, drag the filter edges, and band plans for every HF band,
+  your own country's and up to four others at once.
 - **Audio scope.** See your receive and transmit audio, with peak and
   average traces, THD and S/N readings.
 - **NR4 noise reduction** on the computer, on top of the radio's own NR.
@@ -123,6 +125,9 @@ TUNE and the antenna tuner; FINE tuning in 1 Hz steps; and a clearer
 
 **Listening**
 
+- **Remote receivers**: listen on KiwiSDRs and UberSDRs around the world,
+  tuned with your radio, to hear your own signal as they hear it, with
+  their S-meter and waterfall.
 - **Broadcast schedule** for the whole world, with distances and bearings.
 - **Bookmarks with a scanner**, a **listening log** with reception reports,
   **signal history** and **recordings at set times**.
@@ -405,6 +410,44 @@ are doing, and what that means for the bands.
 | **Space weather**: solar flux, sunspots, the A and K indices, flares, the solar wind, band noise, aurora and NOAA's scales, each with a few words on what it means, and charts of the K index and X-rays. | **HF**: band conditions by day and night, the live ionosondes nearest you, the highest frequency a 3,000 km hop will carry and the best one to use, and the greyline map. |
 | ![VHF](docs/images/propagation-vhf.png) | ![Tropo](docs/images/propagation-tropo.png) |
 | **VHF**: aurora and sporadic E, the strongest sporadic E near you and the bands it would open, with the ionosondes on a map. | **Tropo**: ducting for the next three days at your station and on a map around you, worked out from a weather model to the ITU's method. |
+
+## Remote receivers: hear yourself from far away
+
+**RADIO → Remote receivers** lists more than 900 online receivers around
+the world: KiwiSDRs and UberSDRs that their owners share for anyone to
+listen to. Choose one and its audio plays through the same speakers as your
+radio.
+
+![Remote receivers](docs/images/remote-receivers.png)
+
+*Listening to an UberSDR in Cobh on 40 m. At the top: who and where, the
+minutes left, the receiver's own S-meter and how it is tuned and heard.
+Below the list, the receiver's waterfall with your R and T markers.*
+
+- **Hear yourself.** With **Follow where I transmit**, the receiver stays on
+  your transmit frequency, split and XIT included. Key up and, a second or
+  two later, you hear your own signal as that part of the world hears it,
+  and see it rise on the **SIGNAL THERE** meter. **Follow the dial** listens
+  where your radio listens, to compare.
+- **Find the right one.** Nearest first, with each receiver's country,
+  distance and direction, how many are listening, its signal-to-noise and
+  its antenna. Pick a country, show only receivers with a **FREE SLOT** or
+  that cover **THIS BAND**, or search for a place, a callsign or an antenna.
+- **Its own waterfall**, drawn like your radio's bandscope, from 30 MHz
+  wide down to 1.8 kHz. Click it to tune your radio there.
+- **Filter** copies your radio's own filter, or choose a width. **QUIET
+  RADIO** silences your own radio while you listen.
+- **REC** records what the receiver plays to a WAV file.
+- **A good guest.** The app only ever uses one listener slot and gives it
+  back the moment you stop. You choose the name the owner sees: your
+  callsign, any name, or none. UberSDRs set a time limit, and the app counts
+  down the minutes left. **IN BROWSER** hands the receiver over to its own
+  web page.
+
+![Choosing a country](docs/images/remote-receivers-countries.png)
+
+*The country list: every country with a receiver, and how many each has.
+The country comes from where the receiver is, however its owner spelt it.*
 
 ## Listening: broadcasts, bookmarks and logs
 
@@ -789,28 +832,37 @@ turns the labels off and on.
 **CW T.** starts the radio's own CW auto-tune, which puts the radio exactly
 on the station. **CW TUNE** flashes on the frequency display while it works.
 
-## Band plans for 5 MHz and 70 MHz
+## Band plans
 
-Choose your country under **RADIO → Band plan**: Ireland, the UK or the
-US. On 5 MHz and 70 MHz the bandscope shows the segments you may use, in
-colour, with the details when you rest the pointer on one. Anything
-outside the plan is tinted red. If what you are about to transmit falls
-outside the plan, or is too wide for that part of it, a short warning
-appears. It only warns. It never stops you transmitting.
+Choose your country under **RADIO → Band plan**: Ireland, the UK, the USA,
+Canada or Australia, or the IARU's own plan for Region 1, 2 or 3. On every
+HF band, coloured strips along the top of the bandscope show which part of
+the band is for what: CW, data, phone, all modes, beacons and so on. Rest
+the pointer on one for the details. If what you are about to transmit falls
+outside your plan, or is too wide for that part of it, a short note
+appears. It only tells you. It never stops you transmitting. The IARU plans
+are recommendations rather than law, so for those the note is gentler.
 
-![The 5 MHz band plan on the bandscope](docs/images/band-plan-5mhz.png)
+![The Band plan menu](docs/images/band-plans-menu.png)
 
-*60 m with the band plan on: the allowed segments are marked along the top
-of the bandscope.*
+*RADIO → Band plan, with four more plans ticked under Also show. The menus
+stay open while you tick, so you can choose several in one go.*
 
-- **UK**: the RSGB 5 MHz plan from 1 January 2026.
-- **Ireland**: the RSGB blocks, with the IRTS (IARU Region 1) plan from
-  5351.5 to 5366.5 kHz.
-- **US**: the FCC rules.
+- **See other countries' plans as well.** Under **Also show**, tick up to
+  four more. Each is a thinner strip under yours, with its name at the
+  left. Working DX, you can see where the other station may answer you.
+- **Make your own.** **Make a copy to edit…** copies the plan in use to
+  your band plans folder as a simple text file. Edit it, save it, and the
+  bandscope updates by itself.
 - On 5 MHz the radio's transmit and receive filters are set to the band's
   width (2.7 kHz in Ireland and the UK, 2.8 kHz in the US). Your own
   filters are put back when you leave the band.
-- The band keys include **5** and **70**.
+
+![Five band plans on 40 m](docs/images/band-plans-also-show.png)
+
+*40 m with Ireland's plan along the top and Australia, Canada, the USA and
+IARU Region 1 under it. Where Ireland allows all modes, the USA keeps CW,
+RTTY and data low in the band and phone high.*
 
 ## Log4OM over TCI
 
