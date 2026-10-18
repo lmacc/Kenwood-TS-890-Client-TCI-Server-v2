@@ -27,13 +27,21 @@ comes over your network, because the USB serial link is too slow for a
 smooth scope. Or connect over the network alone, and use the radio from
 somewhere else.
 
-> **Version 2.4.8 replaces every earlier release.** Run its installer and it
+> **Version 2.4.9 replaces every earlier release.** Run its installer and it
 > removes the version you have and puts itself in its place: your settings,
 > layouts and logbook are kept. Updates only go forward, so everyone is on
 > the same version. If you use the Remote Relay at home, update that too
 > (see [Remote operation](#remote-operation-experimental)).
 
-**New in 2.4.8:** set the [remote receiver's filter](#remote-receivers-hear-yourself-from-far-away)
+**New in 2.4.9:** [RTTY and PSK31](#cw-rtty-and-psk31) fixed and easier.
+RTTY now decodes properly in USB-D and FSK-R (it printed nonsense before),
+and the CAT log no longer fills with "rejected: SH0" and "rejected: IS" in
+FSK. RTTY and PSK31 can now be sent from any mode, FSK and PSK included:
+the app borrows LSB-D or USB-D for the over and puts everything back
+after. DECODE also works in plain LSB and USB, PSK31 has a **P** marker on
+the bandscope that you can drag onto a station, and RTTY has a **REV** key.
+
+**In 2.4.8:** set the [remote receiver's filter](#remote-receivers-hear-yourself-from-far-away)
 exactly, with its own low and high cut (or drag its edges on the waterfall),
 wider presets, and a **REMOTE RX** key on the top row.
 
@@ -790,7 +798,9 @@ tells you which plugin it was. Plugins have been tried on Windows so far.
 ## CW, RTTY and PSK31
 
 The app decodes all three and sends all three, in a pane under the
-waterfall. Press **DECODE** beside the tuning knob to open it.
+waterfall. Press **DECODE** beside the tuning knob to open it. It works in
+CW, FSK, PSK, LSB-D, USB-D and plain LSB and USB. In the last four, choose
+RTTY or PSK31 with the small key on the pane's status line.
 
 ![RTTY with the macros](docs/images/rtty.png)
 
@@ -801,7 +811,16 @@ details and the eight messages.*
 
 - **Tuning RTTY**: the mark and space tones are marked on the bandscope.
   Drag them onto a station, or let **AFC** find it, and **SYNC** brings the
-  radio onto it.
+  radio onto it. Mark and space are the right way round in every mode by
+  themselves; **REV** swaps them for the odd station sending upside down.
+- **Tuning PSK31**: an amber **P** on the bandscope shows where the decoder
+  is listening and where you transmit. Drag it onto a station to copy it,
+  and your reply goes out there too.
+- **Send from any mode.** In LSB-D and USB-D your text goes straight out.
+  In FSK, PSK and plain LSB or USB, the radio can't send the app's audio
+  cleanly, so the app changes it to LSB-D or USB-D for the over, on exactly
+  the same frequency, and puts the mode and dial back afterwards. It can't
+  do that with LOCK on, on a memory channel or in split, and tells you so.
 - **F1 to F8 macros**, with your call, name, QTH and locator, and the
   station you're working, filled in for you. A macro that needs a field
   that's empty isn't sent.
