@@ -27,13 +27,18 @@ comes over your network, because the USB serial link is too slow for a
 smooth scope. Or connect over the network alone, and use the radio from
 somewhere else.
 
-> **Version 2.4.6 replaces every earlier release.** Run its installer and it
+> **Version 2.4.7 replaces every earlier release.** Run its installer and it
 > removes the version you have and puts itself in its place: your settings,
 > layouts and logbook are kept. Updates only go forward, so everyone is on
 > the same version. If you use the Remote Relay at home, update that too
 > (see [Remote operation](#remote-operation-experimental)).
 
-**New in 2.4.6:** [tune the remote receivers](#remote-receivers-hear-yourself-from-far-away)
+**New in 2.4.7:** [every window fits your screen](#fits-your-screen), on a
+13-inch laptop too: the logbook, the PSK map, Remote receivers, the About box
+and the rest open smaller or with scroll bars, and the main window offers to
+fit as soon as the screen or Windows' scaling changes.
+
+**In 2.4.6:** [tune the remote receivers](#remote-receivers-hear-yourself-from-far-away)
 on their own, up and down their bands, with their own frequency, steps,
 mode and a list of the amateur and broadcast bands, as on a KiwiSDR's own
 page; and smoother audio from them.
@@ -579,16 +584,20 @@ and how to keep it safe. Try it into a dummy load first.
 
 ## Fits your screen
 
-The app's layouts are arranged on a big monitor. On a smaller screen, such
-as a laptop, which Windows usually also enlarges by 125 or 150 %, they
-wouldn't fit. So the app fits itself:
+The app is arranged on a big monitor. On a laptop, especially a 13 or
+14-inch one where Windows also enlarges everything by 125, 150 % or more, it
+wouldn't fit. So it fits itself, and usually you don't have to do anything:
 
-- **On a new install**, it measures the screen and, if needed, draws itself
-  smaller and restarts once. The whole panel opens in its arrangement, just
-  smaller, with nothing overlapping or cut off.
-- **On an existing install** moved to a smaller screen, it offers to.
-- **Any time**: **VIEW → View settings → Display & window → Fit to this
-  screen**, or choose a size by hand.
+- **The main window**: on a new install it measures the screen and, if
+  needed, draws itself smaller and restarts once. After that it asks **Fit
+  to this screen?** whenever the panel doesn't fit, when it starts or as
+  soon as you change Windows' scaling or move to a smaller monitor. Tick
+  **Don't ask again for this screen** to stop it asking.
+- **Every other window** (the logbook, the PSK map, Remote receivers, the DX
+  cluster, the About box and the rest) opens smaller to fit, or with scroll
+  bars if what's inside can't shrink that far. Nothing is hidden or cut off.
+- **Windows always stay on the screen**, title bar and all.
+- **Choose the size yourself** any time under **VIEW → Display size**.
 
 ## The top of the screen
 
