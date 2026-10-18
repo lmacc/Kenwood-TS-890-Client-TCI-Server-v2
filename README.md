@@ -27,13 +27,17 @@ comes over your network, because the USB serial link is too slow for a
 smooth scope. Or connect over the network alone, and use the radio from
 somewhere else.
 
-> **Version 2.4.7 replaces every earlier release.** Run its installer and it
+> **Version 2.4.8 replaces every earlier release.** Run its installer and it
 > removes the version you have and puts itself in its place: your settings,
 > layouts and logbook are kept. Updates only go forward, so everyone is on
 > the same version. If you use the Remote Relay at home, update that too
 > (see [Remote operation](#remote-operation-experimental)).
 
-**New in 2.4.7:** [every window fits your screen](#fits-your-screen), on a
+**New in 2.4.8:** set the [remote receiver's filter](#remote-receivers-hear-yourself-from-far-away)
+exactly, with its own low and high cut (or drag its edges on the waterfall),
+wider presets, and a **REMOTE RX** key on the top row.
+
+**In 2.4.7:** [every window fits your screen](#fits-your-screen), on a
 13-inch laptop too: the logbook, the PSK map, Remote receivers, the About box
 and the rest open smaller or with scroll bars, and the main window offers to
 fit as soon as the screen or Windows' scaling changes.
@@ -423,7 +427,8 @@ are doing, and what that means for the bands.
 
 ## Remote receivers: hear yourself from far away
 
-**RADIO → Remote receivers** lists more than 900 online receivers around
+**RADIO → Remote receivers**, or the **REMOTE RX** key on the top row (lit
+while you're listening), lists more than 900 online receivers around
 the world: KiwiSDRs and UberSDRs that their owners share for anyone to
 listen to. Choose one and its audio plays through the same speakers as your
 radio.
@@ -454,8 +459,12 @@ Below the list, the receiver's waterfall with your R and T markers.*
   alone with Tune it here.
 - **Smooth audio.** A short reserve and its own playing thread ride out the
   bursts and gaps of audio over the internet.
-- **Filter** copies your radio's own filter, or choose a width. **QUIET
-  RADIO** silences your own radio while you listen.
+- **Filter** copies your radio's own filter, or choose a width (up to 5.7 kHz
+  in SSB, 12 kHz in AM), or **Custom** to set the **LOW** and **HIGH** cut
+  yourself, in hertz. You can also drag the edges of the shaded passband on
+  the receiver's waterfall. SSB can't go wider than about 5.9 kHz on these
+  receivers: their SSB audio is sampled at 12 kHz.
+- **QUIET RADIO** silences your own radio while you listen.
 - **REC** records what the receiver plays to a WAV file.
 - **A good guest.** The app only ever uses one listener slot and gives it
   back the moment you stop. You choose the name the owner sees: your
