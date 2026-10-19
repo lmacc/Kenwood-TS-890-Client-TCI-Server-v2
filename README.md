@@ -27,13 +27,21 @@ comes over your network, because the USB serial link is too slow for a
 smooth scope. Or connect over the network alone, and use the radio from
 somewhere else.
 
-> **Version 2.4.9 replaces every earlier release.** Run its installer and it
+> **Version 2.4.10 replaces every earlier release.** Run its installer and it
 > removes the version you have and puts itself in its place: your settings,
 > layouts and logbook are kept. Updates only go forward, so everyone is on
 > the same version. If you use the Remote Relay at home, update that too
 > (see [Remote operation](#remote-operation-experimental)).
 
-**New in 2.4.9:** [RTTY and PSK31](#cw-rtty-and-psk31) fixed and easier.
+**New in 2.4.10:** [remote receivers](#remote-receivers-hear-yourself-from-far-away)
+sound full instead of thin and tinny, and like your own radio; **MUTE ON
+TX** keeps a remote receiver quiet while you transmit. A **MUTE** key on
+the top row silences the radio's audio through the PC with one press. With
+the speech processor on, the app shows **PROC OUT** as the radio does and
+the MIC knob sets it. And the [filter scope](#the-filter-scope) no longer
+cuts off the top of CW, RTTY and PSK signals.
+
+**In 2.4.9:** [RTTY and PSK31](#cw-rtty-and-psk31) fixed and easier.
 RTTY now decodes properly in USB-D and FSK-R (it printed nonsense before),
 and the CAT log no longer fills with "rejected: SH0" and "rejected: IS" in
 FSK. RTTY and PSK31 can now be sent from any mode, FSK and PSK included:
@@ -443,9 +451,11 @@ radio.
 
 ![Remote receivers](docs/images/remote-receivers.png)
 
-*Listening to an UberSDR in Cobh on 40 m. At the top: who and where, the
-minutes left, the receiver's own S-meter and how it is tuned and heard.
-Below the list, the receiver's waterfall with your R and T markers.*
+*Listening to an UberSDR in Cobh on 80 m, following the dial, with the
+filter the same as the radio's. At the top: who and where, the minutes
+left, the receiver's own S-meter and how it is tuned and heard, with QUIET
+RADIO and MUTE ON TX. Below the list, the receiver's waterfall with your R
+and T markers.*
 
 - **Hear yourself.** With **Follow where I transmit**, the receiver stays on
   your transmit frequency, split and XIT included. Key up and, a second or
@@ -465,14 +475,21 @@ Below the list, the receiver's waterfall with your R and T markers.*
 - **Its own waterfall**, drawn like your radio's bandscope, from 30 MHz
   wide down to 1.8 kHz. Click it to tune your radio there, or the receiver
   alone with Tune it here.
-- **Smooth audio.** A short reserve and its own playing thread ride out the
-  bursts and gaps of audio over the internet.
-- **Filter** copies your radio's own filter, or choose a width (up to 5.7 kHz
+- **Smooth, full audio.** A short reserve and its own playing thread ride
+  out the bursts and gaps of audio over the internet, and the app converts
+  the receiver's audio to your sound card's rate itself, so it sounds as
+  full as in a browser.
+- **Filter** copies your radio's own filter (set as low and high cut, or as
+  width and shift), or choose a width (up to 5.7 kHz
   in SSB, 12 kHz in AM), or **Custom** to set the **LOW** and **HIGH** cut
   yourself, in hertz. You can also drag the edges of the shaded passband on
   the receiver's waterfall. SSB can't go wider than about 5.9 kHz on these
   receivers: their SSB audio is sampled at 12 kHz.
-- **QUIET RADIO** silences your own radio while you listen.
+- **QUIET RADIO** silences your own radio while you listen. The **MUTE**
+  key on the top row does the same any time, one press on and one off,
+  without touching your Listen settings; a remote receiver is still heard.
+- **MUTE ON TX** keeps the receiver quiet while you transmit and brings it
+  back on receive, handy on a net. Leave it off to hear yourself.
 - **REC** records what the receiver plays to a WAV file.
 - **A good guest.** The app only ever uses one listener slot and gives it
   back the moment you stop. You choose the name the owner sees: your
@@ -688,7 +705,8 @@ radio. It shows which receive filter is in use (A, B or C), its settings
 (low cut, bandwidth and high cut, or width and shift), the filter's shape,
 the audio inside it, and the roofing filter. For voice it has a 3 kHz
 scale, and a 5 kHz scale once the high cut goes above 3 kHz, as the radio
-does.
+does. The trace is measured from the noise inside the filter and makes room
+for a strong signal, so nothing is cut off, even with a narrow CW filter.
 
 ### The clock
 
@@ -712,7 +730,7 @@ server, so setting it by hand is greyed out.*
 |---|---|
 | **RIT / XIT** | Whether RIT and XIT are on, and the offset: 0.000 when there is none. |
 | **D.VOX** | Whether DATA VOX is on, and which input it listens to. |
-| **Power / MIC / DELAY** | Your transmit power, microphone gain and delay, for example "5W MIC: 23 DELAY: 3". |
+| **Power / MIC / DELAY** | Your transmit power, microphone gain and delay, for example "5W MIC: 23 DELAY: 3". With the speech processor on it shows **PROC OUT** instead, as the radio does, and the MIC knob sets it. |
 | **TCI** | Which programs are connected to the TCI server, as short tags: **L4OM** for Log4OM, **WSJT** for WSJT-X, **N1MM**, **JTDX**, and so on. If there are more than fit, it shows "+2" and so on. Rest the pointer on it for the full list. |
 
 ## Talk through the computer
