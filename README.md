@@ -27,13 +27,17 @@ comes over your network, because the USB serial link is too slow for a
 smooth scope. Or connect over the network alone, and use the radio from
 somewhere else.
 
-> **Version 2.4.10 replaces every earlier release.** Run its installer and it
+> **Version 2.4.11 replaces every earlier release.** Run its installer and it
 > removes the version you have and puts itself in its place: your settings,
 > layouts and logbook are kept. Updates only go forward, so everyone is on
 > the same version. If you use the Remote Relay at home, update that too
 > (see [Remote operation](#remote-operation-experimental)).
 
-**New in 2.4.10:** [remote receivers](#remote-receivers-hear-yourself-from-far-away)
+**New in 2.4.11:** [favourite remote receivers](#remote-receivers-hear-yourself-from-far-away),
+a **MUTE** that silences a receiver without giving up your slot on it, and
+KiwiSDRs that played in a browser but not in the app now play here too.
+
+**In 2.4.10:** [remote receivers](#remote-receivers-hear-yourself-from-far-away)
 sound full instead of thin and tinny, and like your own radio; **MUTE ON
 TX** keeps a remote receiver quiet while you transmit. A **MUTE** key on
 the top row silences the radio's audio through the PC with one press. With
@@ -472,6 +476,8 @@ and T markers.*
   distance and direction, how many are listening, its signal-to-noise and
   its antenna. Pick a country, show only receivers with a **FREE SLOT** or
   that cover **THIS BAND**, or search for a place, a callsign or an antenna.
+- **Favourites.** Click the star at the start of a row to keep a receiver
+  as a favourite, and **FAVOURITES** shows just yours. They're remembered.
 - **Its own waterfall**, drawn like your radio's bandscope, from 30 MHz
   wide down to 1.8 kHz. Click it to tune your radio there, or the receiver
   alone with Tune it here.
@@ -485,6 +491,9 @@ and T markers.*
   yourself, in hertz. You can also drag the edges of the shaded passband on
   the receiver's waterfall. SSB can't go wider than about 5.9 kHz on these
   receivers: their SSB audio is sampled at 12 kHz.
+- **MUTE**, beside VOLUME, silences the receiver but stays connected, so
+  you keep your slot on a busy receiver and the sound is back at once.
+  **LISTEN** stops and gives the slot back.
 - **QUIET RADIO** silences your own radio while you listen. The **MUTE**
   key on the top row does the same any time, one press on and one off,
   without touching your Listen settings; a remote receiver is still heard.
@@ -496,6 +505,11 @@ and T markers.*
   callsign, any name, or none. UberSDRs set a time limit, and the app counts
   down the minutes left. **IN BROWSER** hands the receiver over to its own
   web page.
+
+![Favourite receivers](docs/images/remote-receivers-favourites.png)
+
+*FAVOURITES on: just the receivers you've starred, here listening to the
+Beverage at Chichester on 40 m. MUTE sits beside VOLUME.*
 
 ![Choosing a country](docs/images/remote-receivers-countries.png)
 
