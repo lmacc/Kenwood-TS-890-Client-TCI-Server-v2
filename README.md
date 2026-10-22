@@ -27,13 +27,18 @@ comes over your network, because the USB serial link is too slow for a
 smooth scope. Or connect over the network alone, and use the radio from
 somewhere else.
 
-> **Version 2.4.11 replaces every earlier release.** Run its installer and it
+> **Version 2.4.12 replaces every earlier release.** Run its installer and it
 > removes the version you have and puts itself in its place: your settings,
 > layouts and logbook are kept. Updates only go forward, so everyone is on
 > the same version. If you use the Remote Relay at home, update that too
 > (see [Remote operation](#remote-operation-experimental)).
 
-**New in 2.4.11:** [favourite remote receivers](#remote-receivers-hear-yourself-from-far-away),
+**New in 2.4.12:** [WSJT-X over TCI, with its audio](#wsjt-x-over-tci-with-its-audio).
+WSJT-X, JTDX and other TCI programs can now send and receive the radio's
+audio through the app, so they need no sound card, with the app on USB or
+on the network, at home or away through the Remote Relay.
+
+**In 2.4.11:** [favourite remote receivers](#remote-receivers-hear-yourself-from-far-away),
 a **MUTE** that silences a receiver without giving up your slot on it, and
 KiwiSDRs that played in a browser but not in the app now play here too.
 
@@ -92,7 +97,8 @@ panel.
 - [Talk through the computer](#talk-through-the-computer) ·
   [FreeDV](#freedv-digital-voice) · [VST 3 plugins](#vst-3-plugins)
 - [CW, RTTY and PSK31](#cw-rtty-and-psk31) · [Reading CW](#reading-cw) ·
-  [Band plans](#band-plans) · [Log4OM over TCI](#log4om-over-tci)
+  [Band plans](#band-plans) · [WSJT-X over TCI](#wsjt-x-over-tci-with-its-audio) ·
+  [Log4OM over TCI](#log4om-over-tci)
 - [Download and install](#download-and-install) ·
   [The user guide](#the-user-guide) · [Support](#support)
 
@@ -172,7 +178,8 @@ panel.
 **Everything else**
 
 - **TCI server.** Log4OM, WSJT-X, MSHV and other programs can follow the
-  radio over TCI. The panel shows which ones are connected.
+  radio over TCI, and send and receive its audio over it too, with no sound
+  card. The panel shows which ones are connected.
 - **CAT sharing (Windows only).** Share the radio's CAT port with another
   program, such as DXLab, through a virtual serial port.
 - **Fits your screen**, from a big monitor down to a 13-inch laptop.
@@ -946,6 +953,41 @@ stay open while you tick, so you can choose several in one go.*
 *40 m with Ireland's plan along the top and Australia, Canada, the USA and
 IARU Region 1 under it. Where Ireland allows all modes, the USA keeps CW,
 RTTY and data low in the band and phone high.*
+
+## WSJT-X over TCI, with its audio
+
+WSJT-X can work the radio through the app's TCI server alone. It tunes and
+keys the radio, gets the receive audio and sends its transmit audio, all over
+TCI, so it needs no USB sound card and no virtual audio cable. It works with
+the app on the USB cable or connected over the network, so WSJT-X can run
+with nothing but the LAN between the PC and the radio, and from away from
+home through the [Remote Relay](#remote-operation-experimental). JTDX and
+other programs that send their audio over TCI work the same way.
+
+1. In the app, tick the TCI server in **Connections → Sharing & TCI**.
+2. In WSJT-X, choose the TCI rig in **Settings → Radio**, with the address
+   **localhost** and the app's port (40001).
+3. In **Settings → Audio**, tick **Use TCI Audio** and set Input and Output
+   to **TCI audio**, then restart WSJT-X.
+4. Set the level with WSJT-X's **Pwr** slider, until the radio's ALC just
+   moves.
+
+![WSJT-X with its audio over TCI](docs/images/wsjt-x-tci-audio.png)
+
+*WSJT-X 3.0 on 40 m FT8 with its audio over TCI. On the right, its Audio
+settings with Input and Output on TCI audio. The yellow lines are its CQs
+going out, the red ones the stations answering.*
+
+![The app while WSJT-X transmits over TCI](docs/images/tci-audio-wsjt-x.png)
+
+*The same over in the app, connected to the radio over the network: TCI
+shows WSJT, the radio is transmitting in USB-D, and Level out shows WSJT-X's
+audio going to the radio.*
+
+If WSJT-X keeps its sound card on the radio's USB codec, nothing changes: it
+still tunes and keys over TCI as before. The radio is never left keyed: if
+WSJT-X closes, drops the connection or stops sending audio while
+transmitting, the radio goes back to receive.
 
 ## Log4OM over TCI
 
