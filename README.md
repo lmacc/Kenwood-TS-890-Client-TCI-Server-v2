@@ -27,13 +27,21 @@ comes over your network, because the USB serial link is too slow for a
 smooth scope. Or connect over the network alone, and use the radio from
 somewhere else.
 
-> **Version 2.4.12 replaces every earlier release.** Run its installer and it
+> **Version 2.4.13 replaces every earlier release.** Run its installer and it
 > removes the version you have and puts itself in its place: your settings,
 > layouts and logbook are kept. Updates only go forward, so everyone is on
 > the same version. If you use the Remote Relay at home, update that too
 > (see [Remote operation](#remote-operation-experimental)).
 
-**New in 2.4.12:** [WSJT-X over TCI, with its audio](#wsjt-x-over-tci-with-its-audio).
+**New in 2.4.13:** [from a spot to the log in one click](#the-dx-cluster):
+click a DX cluster spot or a callsign on the bandscope and the radio tunes
+to the station and the Log QSO window opens with them in it, park reference
+and all. A [worked-before grid](#logging-a-qso) shows which bands and modes
+you still need, new parks are picked out, the QSO time can be changed before
+saving, QSOs can go to N3FJP and HRD Logbook, and your state and county go
+to LoTW.
+
+**In 2.4.12:** [WSJT-X over TCI, with its audio](#wsjt-x-over-tci-with-its-audio).
 WSJT-X, JTDX and other TCI programs can now send and receive the radio's
 audio through the app, so they need no sound card, with the app on USB or
 on the network, at home or away through the Remote Relay.
@@ -138,7 +146,13 @@ panel.
 **Logging and contests**
 
 - **A full logbook** that can be your main log, kept in step with Log4OM
-  or any other logger in both directions.
+  or any other logger in both directions, and sending to N3FJP and HRD
+  Logbook too.
+- **Log from a spot**: click a DX cluster spot or a call on the bandscope,
+  and the QSO is open with the station, their park or summit and what
+  QRZ.com knows already in it.
+- **A worked-before grid** in every QSO: which bands and modes you have
+  worked the station and their country on, and which are confirmed.
 - **Statistics and a world map** of everything you have worked and
   confirmed.
 - **Awards**: how far you have got with DXCC, WAZ, WAS, WAC, WPX, IOTA and
@@ -226,8 +240,11 @@ QSL service, and every earlier QSO with that station.*
   read and write ADIF; QSOs already in the log are never added twice.
 - **LOGGER LINK** sends each QSO you log to your logger, and reads your
   logger's log back: new QSOs, and changes such as a confirmation or a name
-  filled in, come into this logbook. Log4OM needs nothing setting up. Your
-  logger's own database is only ever read, never written.
+  filled in, come into this logbook. Choose your logger (Log4OM, HRD
+  Logbook, N3FJP or MacLoggerDX) and it is set up for it, with a line saying
+  what to switch on in the logger. Log4OM needs nothing setting up; N3FJP's
+  loggers take each QSO through their own TCP API. Your logger's own
+  database is only ever read, never written.
 
 | | |
 |---|---|
@@ -282,15 +299,31 @@ in this window.*
 ## Logging a QSO
 
 Press **Ctrl+L** anywhere in the app, or **NEW QSO** in the Logbook, and
-the Log QSO window opens with the frequency, band, mode, start time and
-their signal already filled in. Press Ctrl+L or Enter again to save it.
+the Log QSO window opens with the frequency, band, mode, date and time and
+their signal already filled in. Press Ctrl+L or Enter again to save it. Or
+click a spot, and it opens with the station already in it (see
+[the DX cluster](#the-dx-cluster)).
 
-![The Log QSO window](docs/images/log-qso.png)
+![The Log QSO window](docs/images/log-qso-grid.png)
 
-*A QSO on 80 m SSB. The name and QTH came from QRZ.com and are outlined
-to show it. The Station card gives the country, zones and badges, and
-lists the earlier QSOs with this station.*
+*P40L in Aruba, opened from a spot on 40 m SSB during CQ WW DX, so the
+window asks for the contest exchange. The Station card says it is a new
+band and a first QSO. In the worked-before grid, 40 m phone is framed in
+amber because that is where the radio is, and it is empty: Aruba has never
+been worked there. The blue frames on 20 m and 17 m phone are Aruba worked
+but not confirmed.*
 
+- **The worked-before grid** shows the bands against phone, CW and data:
+  green for this station, blue for their country, solid when confirmed,
+  framed when not, and **L** when the confirmation is on LoTW. The band and
+  mode the radio is on is framed in amber, so you can see before the QSO
+  whether it fills a gap.
+- **The date and time** run with the clock, and the QSO is logged when you
+  save it. Worked them a while ago? Type or step the time in; it turns
+  amber and that time is logged. **NOW** sets it running again.
+- **Parks and summits**: **Activity** and **Ref** are logged as SIG and
+  SIG_INFO, and as POTA_REF, SOTA_REF or WWFF_REF too. A park you have never
+  worked is marked **NEW POTA**.
 - **The Station card** fills in as you type the call: their name, QTH and
   country, a photo from QRZ.com, how far away they are and the bearing,
   their zones, and badges for a **new country**, a **new band**, a **first
@@ -305,7 +338,8 @@ lists the earlier QSOs with this station.*
 - **DISCARD** drops the QSO and starts a fresh one, so the window stays
   ready for the next station.
 - Every QSO also gets the station's country, DXCC number, zones, continent
-  and WPX prefix, your power, and their S-meter reading.
+  and WPX prefix, your power, your state and county, and their S-meter
+  reading.
 
 ## Contests
 
@@ -358,6 +392,9 @@ number of QSOs not yet sent.*
 - **Logbook of the World**: QSOs are handed to the ARRL's own TQSL, which
   signs and uploads them with your certificate. New confirmations are
   fetched by themselves every six hours.
+- **Your state and county** go into every QSO (MY_STATE and MY_CNTY), for
+  LoTW's WAS and county awards. Left empty, your TQSL Station Location's are
+  used, and the window warns if what you typed doesn't match it.
 - **Your logins are kept safe** by Windows' Credential Manager, or in the
   Keychain on a Mac, never in the app's own files.
 - **TQSL** is found by itself in its usual place on Windows and on a Mac.
@@ -387,8 +424,9 @@ the great-circle path to each.*
 
 ## The DX cluster
 
-**RADIO → DX cluster** shows who is on the air, where, and in what mode.
-Double-click a spot to tune to it.
+The **DX CLUSTER** key on the top bar, or **RADIO → DX cluster**, shows who
+is on the air, where, and in what mode. The key is lit while the cluster is
+connected. Double-click a spot to tune to it and log it.
 
 ![The DX cluster](docs/images/dx-cluster.png)
 
@@ -406,12 +444,28 @@ and QRZ. Under it is the box for sending a spot of your own.*
   on your continent (to start with), in your country, or anywhere, so the
   stations named are ones you can probably hear.
 - **Filters** for band, mode (CW, phone, data), activity (DX, POTA, SOTA,
-  WWFF and others), **new countries only**, skimmers, and a search.
+  WWFF and others), **new ones only**, skimmers, and a search.
 - **New ones stand out**: a country you have never worked is amber, and one
-  you have worked but not on this band is cyan, as on the bandscope.
+  you have worked but not on this band is cyan, as on the bandscope. A park
+  or summit not in your log is orange and marked **NEW POTA**, and **NEW
+  ONLY** with POTA lists just the parks you still need.
 - **ON SCOPE** names the last half hour's spots on the bandscope. Turn on
   **SKIMMERS** as well, and the bandscope fills with the stations the
   skimmers hear calling right now.
+- **From a spot to the log**: double-click a spot, press TUNE, click a
+  callsign on the bandscope or press Tune in a watched call's alert. The
+  radio tunes to the station and the Log QSO window opens with them in it:
+  the call looked up on QRZ.com, and for a park or summit its reference and
+  name. **OPEN QSO** turns it off, and a QSO you are in the middle of is
+  never replaced.
+- **Ctrl+Up** and **Ctrl+Down** step from one named station on the
+  bandscope to the next along the band.
+
+![From a spot to the log](docs/images/call-and-log.png)
+
+*VE4VT, spotted on 40 m and named on the bandscope, has been chosen: the
+radio has gone to the station and the Log QSO window has opened with the call
+in it. The grid shows Canada worked, and mostly confirmed, on many bands.*
 - The same station spotted again stays on one row, with a count.
 - **Send a spot** of your own through a telnet node, after a confirmation.
   **FROM RADIO** fills in the frequency.
