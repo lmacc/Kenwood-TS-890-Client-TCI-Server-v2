@@ -27,13 +27,19 @@ comes over your network, because the USB serial link is too slow for a
 smooth scope. Or connect over the network alone, and use the radio from
 somewhere else.
 
-> **Version 2.4.13 replaces every earlier release.** Run its installer and it
+> **Version 2.4.14 replaces every earlier release.** Run its installer and it
 > removes the version you have and puts itself in its place: your settings,
 > layouts and logbook are kept. Updates only go forward, so everyone is on
 > the same version. If you use the Remote Relay at home, update that too
 > (see [Remote operation](#remote-operation-experimental)).
 
-**New in 2.4.13:** [from a spot to the log in one click](#the-dx-cluster):
+**New in 2.4.14:** [band keys for the remote receivers](#remote-receivers-hear-yourself-from-far-away):
+the amateur and broadcast bands and the utility stations (aircraft, VOLMET,
+ships, time signals, NAVTEX and fax, CB, beacons) a key away, and
+synchronous AM for broadcasts. A double-click in the DX cluster no longer
+risks tuning to the station next to the one clicked.
+
+**In 2.4.13:** [from a spot to the log in one click](#the-dx-cluster):
 click a DX cluster spot or a callsign on the bandscope and the radio tunes
 to the station and the Log QSO window opens with them in it, park reference
 and all. A [worked-before grid](#logging-a-qso) shows which bands and modes
@@ -456,8 +462,9 @@ and QRZ. Under it is the box for sending a spot of your own.*
   callsign on the bandscope or press Tune in a watched call's alert. The
   radio tunes to the station and the Log QSO window opens with them in it:
   the call looked up on QRZ.com, and for a park or summit its reference and
-  name. **OPEN QSO** turns it off, and a QSO you are in the middle of is
-  never replaced.
+  name. **OPEN QSO** turns it off. Going to a spot means working that
+  station, so another station's unsaved QSO is discarded for it (save first
+  to keep it); a saved QSO being corrected is never touched.
 - **Ctrl+Up** and **Ctrl+Down** step from one named station on the
   bandscope to the next along the band.
 
@@ -528,11 +535,21 @@ and T markers.*
   and see it rise on the **SIGNAL THERE** meter. **Follow the dial** listens
   where your radio listens, to compare.
 - **Or tune it on its own.** **Tune it here** lets go of your radio: type a
-  frequency, step up and down from 10 Hz to 10 kHz, choose LSB, USB, CW, AM
-  or FM, or pick a band from the list, the amateur bands from 160 m to 10 m
-  and the broadcast bands from LW and MW up to 11 m. Choosing a band widens
-  the waterfall to show all of it. On the waterfall a click, the mouse wheel
-  or a drag tunes the receiver.
+  frequency, step up and down from 10 Hz to 10 kHz, and choose LSB, USB, CW,
+  AM, **SAM** (synchronous AM, steadier on a fading broadcast) or FM. A key
+  for every band takes it there in the usual mode and widens the waterfall
+  to show all of it: the amateur bands from 160 m to 10 m, the broadcast
+  bands from LW and MW up to 11 m, and the **utility** stations: the aircraft
+  bands, VOLMET, the ship bands, time signals (WWV, CHU, RWM), NAVTEX and
+  weather fax, CB and the beacon band. The key of the band you're in stays
+  lit. On the waterfall a click, the mouse wheel or a drag tunes the
+  receiver.
+
+![Band keys for a remote receiver](docs/images/remote-receivers-bands.png)
+
+*Tune it here on an UberSDR in Cobh: the 31 m key has taken it to 9600 kHz,
+in SAM. Under TUNING THERE are the amateur, broadcast and utility keys; the
+utility keys with a ▾ open a menu of their stations.*
 - **Find the right one.** Nearest first, with each receiver's country,
   distance and direction, how many are listening, its signal-to-noise and
   its antenna. Pick a country, show only receivers with a **FREE SLOT** or
