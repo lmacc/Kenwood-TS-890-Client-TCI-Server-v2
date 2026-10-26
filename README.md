@@ -13,12 +13,12 @@ in.**
 
 <br clear="left">
 
-![The front panel](docs/images/front-panel-v2.2.2.png)
+![The front panel](docs/images/front-panel.png)
 
-*The front panel as a new install opens it. Across the top: the analogue
-S-meter, the frequency, the clock, RIT/XIT and D.VOX, then power, MIC and
-DELAY over the filter scope. Below: the bandscope and waterfall, the
-radio's own keys and knobs, and the audio scope along the bottom.*
+*The front panel. Along the top, the keys for the app's windows. Below
+them: the analogue S-meter, the frequency, the clock, RIT/XIT and D.VOX,
+then power, MIC and DELAY over the filter scope. Then the bandscope and
+waterfall, and the radio's own keys and knobs.*
 
 The keys, knobs and meters look and work like the ones on the radio. You
 can move, resize and hide the groups of controls, and save your own
@@ -27,13 +27,21 @@ comes over your network, because the USB serial link is too slow for a
 smooth scope. Or connect over the network alone, and use the radio from
 somewhere else.
 
-> **Version 2.4.14 replaces every earlier release.** Run its installer and it
+> **Version 2.4.15 replaces every earlier release.** Run its installer and it
 > removes the version you have and puts itself in its place: your settings,
 > layouts and logbook are kept. Updates only go forward, so everyone is on
 > the same version. If you use the Remote Relay at home, update that too
 > (see [Remote operation](#remote-operation-experimental)).
 
-**New in 2.4.14:** [band keys for the remote receivers](#remote-receivers-hear-yourself-from-far-away):
+**New in 2.4.15:** [much more of the radio, from the app](#more-of-the-radio-from-the-app):
+its memory channels, voice messages, scan and quick memories, FM tones, the
+settings behind NR and the noise blankers, an audio peak filter key, CONFIG
+A/B, auto mode, a TX OFF key and its SWL screen. The bandscope now shows
+strong signals the way the radio does, with an overload warning, and an
+antenna rotator can be turned from the app. The logbook fits small laptop
+screens.
+
+**In 2.4.14:** [band keys for the remote receivers](#remote-receivers-hear-yourself-from-far-away):
 the amateur and broadcast bands and the utility stations (aircraft, VOLMET,
 ships, time signals, NAVTEX and fax, CB, beacons) a key away, and
 synchronous AM for broadcasts. A double-click in the DX cluster no longer
@@ -97,7 +105,7 @@ panel.
 
 ## Contents
 
-- [What it does](#what-it-does)
+- [What it does](#what-it-does) · [More of the radio](#more-of-the-radio-from-the-app)
 - [The logbook](#the-logbook) · [Logging a QSO](#logging-a-qso) ·
   [Contests](#contests) · [QSL services](#qsl-services-qrzcom-and-logbook-of-the-world) ·
   [Who is hearing me](#who-is-hearing-me-the-psk-map)
@@ -133,6 +141,9 @@ panel.
   your own country's and up to four others at once.
 - **Audio scope.** See your receive and transmit audio, with peak and
   average traces, THD and S/N readings.
+- **More of the radio**: its memory channels, voice messages, scan, quick
+  memories, FM tones, the audio peak filter, CONFIG A/B, auto mode and its
+  SWL screen. [More below](#more-of-the-radio-from-the-app).
 - **NR4 noise reduction** on the computer, on top of the radio's own NR.
 - **CW, RTTY and PSK31.** Decode and send, with F1 to F8 macros. The CW
   decoder copies like a skimmer: it finds the station's tone, follows the
@@ -202,6 +213,8 @@ panel.
   card. The panel shows which ones are connected.
 - **CAT sharing (Windows only).** Share the radio's CAT port with another
   program, such as DXLab, through a virtual serial port.
+- **Antenna rotator** through hamlib's rotctld: a compass to click, and a
+  key to turn the beam to a station.
 - **Fits your screen**, from a big monitor down to a 13-inch laptop.
 - **Transmit safety.** If the app ever stops responding while you are
   transmitting, the radio is sent back to receive.
@@ -219,6 +232,38 @@ panel.
 | Log4OM and WSJT-X following the radio. | NR4 noise reduction, with every setting explained. |
 | ![Key bindings](docs/images/key-bindings.png) | |
 | Put any key on the keyboard. | |
+
+## More of the radio, from the app
+
+Most of what the radio can do is now a click away:
+
+- **Memory channels** (RADIO > Memory channels): all 120 in one list. Go to
+  one, store where you are, copy, clear or rename one, and save them all to
+  a file or load them into another TS-890S.
+- **Voice messages** (RADIO > Voice messages): record, name, listen to and
+  send the radio's six voice messages, over and over for calling CQ.
+  Shift+F1 to Shift+F6 send them from anywhere in the app.
+- **SWL**: the radio's old-style shortwave dial, shown where the bandscope
+  normally is. Click it to tune.
+- **Hold a key for its settings**, as on the radio: NR, NB1 and NB2 for
+  their levels, the new **APF** key for the audio peak filter in CW, and the
+  new **TONE** key for repeater tones and CTCSS in FM.
+- **SCAN** starts and stops the radio's own scan, and holding **Q-MR** lists
+  the quick memories.
+- **TX OFF** stops the radio transmitting until you press it again.
+  **CONFIG A / B**, **auto mode** and a **sleep timer** are there too.
+- **The bandscope** shows strong signals as the radio does, without
+  clipping, and warns you with **OVF** when the radio is overloaded.
+- **Antenna rotator** (RADIO > Rotator), through hamlib's rotctld: click
+  the compass to turn the beam, or press ROTATE in the QSO window or the DX
+  cluster to turn to that station.
+
+| | |
+|---|---|
+| ![SWL](docs/images/swl-mode.png) | ![Memory channels](docs/images/memory-channels.png) |
+| The radio's SWL dial in the app. | The memory channels in one list. |
+| ![Voice messages](docs/images/voice-messages.png) | ![Rotator](docs/images/rotator.png) |
+| The radio's voice messages. | The rotator turning to a station. |
 
 ## The logbook
 
