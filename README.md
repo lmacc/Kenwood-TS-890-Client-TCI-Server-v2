@@ -27,13 +27,16 @@ comes over your network, because the USB serial link is too slow for a
 smooth scope. Or connect over the network alone, and use the radio from
 somewhere else.
 
-> **Version 2.4.16 replaces every earlier release.** Run its installer and it
+> **Version 2.4.17 replaces every earlier release.** Run its installer and it
 > removes the version you have and puts itself in its place: your settings,
 > layouts and logbook are kept. Updates only go forward, so everyone is on
 > the same version. If you use the Remote Relay at home, update that too
 > (see [Remote operation](#remote-operation-experimental)).
 
-**New in 2.4.16:** [CW the way the radio's keyboard does it](#cw-rtty-and-psk31):
+**New in 2.4.17:** POWER now switches the radio back on over the network
+(it switched it off but not on), and SWL can go on a PF key.
+
+**In 2.4.16:** [CW the way the radio's keyboard does it](#cw-rtty-and-psk31):
 keep typing while it sends, LIVE sends each word as you finish it, and what
 goes out is shown in red as it is keyed. Double-click a decoded callsign to
 look it up on QRZ.com. The DELAY and NOTCH knobs now work, and spots from
