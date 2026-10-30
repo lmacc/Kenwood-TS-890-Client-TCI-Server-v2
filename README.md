@@ -27,13 +27,21 @@ comes over your network, because the USB serial link is too slow for a
 smooth scope. Or connect over the network alone, and use the radio from
 somewhere else.
 
-> **Version 2.4.17 replaces every earlier release.** Run its installer and it
+> **Version 2.4.18 replaces every earlier release.** Run its installer and it
 > removes the version you have and puts itself in its place: your settings,
 > layouts and logbook are kept. Updates only go forward, so everyone is on
 > the same version. If you use the Remote Relay at home, update that too
 > (see [Remote operation](#remote-operation-experimental)).
 
-**New in 2.4.17:** POWER now switches the radio back on over the network
+**New in 2.4.18:** [a new-look logbook](#the-logbook) that opens ready to
+log and narrows to the call as you type it, with the country's flag beside
+the call. New [Statistics and Awards](#the-logbook) pages with colour charts,
+the DXCC Challenge and 5-Band DXCC. [Design your own QSL card](#your-own-qsl-card)
+with your own photos, then print it or send it to eQSL. And POWER now
+switches the radio on over your home network with the radio's KNS Operation
+set to On (LAN) as well as On (Internet).
+
+**In 2.4.17:** POWER now switches the radio back on over the network
 (it switched it off but not on), and SWL can go on a PF key.
 
 **In 2.4.16:** [CW the way the radio's keyboard does it](#cw-rtty-and-psk31):
@@ -116,7 +124,8 @@ panel.
 
 - [What it does](#what-it-does) · [More of the radio](#more-of-the-radio-from-the-app)
 - [The logbook](#the-logbook) · [Logging a QSO](#logging-a-qso) ·
-  [Contests](#contests) · [QSL services](#qsl-services-qrzcom-and-logbook-of-the-world) ·
+  [Contests](#contests) · [QSL services](#qsl-services-qrzcom-logbook-of-the-world-and-eqsl) ·
+  [Your own QSL card](#your-own-qsl-card) ·
   [Who is hearing me](#who-is-hearing-me-the-psk-map)
 - [The DX cluster](#the-dx-cluster) ·
   [Calls to watch for](#calls-to-watch-for) · [Propagation](#propagation)
@@ -284,14 +293,21 @@ ways, so you can carry on using Log4OM, or any other logger, beside it.
 
 ![The Logbook window](docs/images/logbook.png)
 
-*7,682 QSOs read in from Log4OM: 189 DXCC entities worked and 136
-confirmed. Each filter key along the top shows how many QSOs it holds. The
-card on the right shows the selected QSO in full, where it stands with each
-QSL service, and every earlier QSO with that station.*
+*7,683 QSOs read in from Log4OM: 189 DXCC entities worked and 136
+confirmed. The Log QSO form is across the top, ready for the next QSO, with
+the Station card beside it. Each filter key shows how many QSOs it holds.
+The card on the right shows the selected QSO in full and where it stands
+with each QSL service. The sun and band conditions are along the bottom.*
+
+- **Ready to log.** The Logbook opens with a new QSO in the form. Start
+  typing a call and the list below shows only your QSOs with that station.
+  Clear the call and the whole log comes back.
 
 - **Find any QSO** with the filters: band (Ctrl+click for several), mode,
   QSL status and service, today, the last 7 or 30 days or this year, one
   contest, or a search for a call, name, country or locator.
+- **Choose your columns**: right-click a column heading to show or hide
+  it. The **KM** column shows how far away each station was.
 - **The QSL column** shows four letters, P (paper), L (LoTW), E (eQSL) and
   Q (QRZ.com): dim for nothing yet, outlined for sent, filled for
   confirmed.
@@ -309,26 +325,29 @@ QSL service, and every earlier QSO with that station.*
 | | |
 |---|---|
 | ![Statistics](docs/images/logbook-statistics.png) | ![The map](docs/images/logbook-map.png) |
-| **Statistics**: DXCC worked and confirmed on each band in CW, phone and data, your QSOs year by year, and the countries you have worked most. They follow the filters, so you can see just one band, mode or year. | **The map**: countries shaded green for confirmed, amber for worked, and outlined in red if you still need them. Every place you have worked is a dot, coloured by band, mode or QSL. Click a country to see its QSOs, with the great-circle path from you. |
+| **Statistics**: your QSOs, DXCC worked and confirmed, QSL rate and best day across the top, then colour charts of your QSOs by year, band, mode, continent and hour of the day, DXCC on each band in CW, phone and data, and the countries you have worked most, with their flags. They follow the filters, so you can see just one band, mode or year. | **The map**: countries shaded green for confirmed, amber for worked, and outlined in red if you still need them. Every place you have worked is a dot, coloured by band, mode or QSL. Click a country to see its QSOs, with the great-circle path from you. |
 
 The map is drawn from Natural Earth at 1:10 million, so coasts and small
 islands are shown in detail, and it zooms in far enough to show state and
 county lines.
 
-**The Awards tab** shows how far you have got with DXCC, WAZ (the 40 CQ
-zones), WAS (the 50 US states), WAC (the six continents), WPX, IOTA, and the
-POTA, SOTA and WWFF references in your log. Each is counted as worked and
-confirmed. The zones, states and continents are drawn as grids, green when
+**The Awards tab** shows how far you have got with DXCC, the DXCC
+Challenge, 5-Band DXCC, WAZ (the 40 CQ zones), WAS (the 50 US states), WAC
+(the six continents), WPX, IOTA, and the POTA, SOTA and WWFF references in
+your log. Each has a box across the top with a bar showing how far along you
+are, counted as worked and confirmed. A chart shows your DXCC count on each
+band against the 100 needed. The zones, states and continents are drawn as grids, green when
 confirmed, amber when worked and dark when still needed. The islands and
-parks are listed underneath. Like everything else in the Logbook, the awards
+parks are listed underneath, with the bands you have each one on and when
+you last worked it. Like everything else in the Logbook, the awards
 follow the filters, so 20m and CW gives you WAS on 20 metres CW. If some of
 your US QSOs have no state, it tells you how many, and EDIT lets you add it.
 
 ![The Awards tab](docs/images/logbook-awards.png)
 
-*The Awards tab for 7,685 QSOs: 189 DXCC, 38 of the 40 CQ zones, 39 of the
-50 states and all six continents, with the islands listed underneath.
-Green is confirmed, amber worked, dark still needed.*
+*The Awards tab for 7,683 QSOs: 189 DXCC, 627 for the DXCC Challenge, 38 of
+the 40 CQ zones, 39 of the 50 states and all six continents. DXCC on 20 m is
+past 100 worked. Green is confirmed, amber worked, dark still needed.*
 
 **DUPLICATES** finds QSOs that are in the log more than once: the same
 call, band and kind of mode within ten minutes. Each QSO logged more than
@@ -366,12 +385,11 @@ click a spot, and it opens with the station already in it (see
 
 ![The Log QSO window](docs/images/log-qso-grid.png)
 
-*P40L in Aruba, opened from a spot on 40 m SSB during CQ WW DX, so the
-window asks for the contest exchange. The Station card says it is a new
-band and a first QSO. In the worked-before grid, 40 m phone is framed in
-amber because that is where the radio is, and it is empty: Aruba has never
-been worked there. The blue frames on 20 m and 17 m phone are Aruba worked
-but not confirmed.*
+*The Log QSO form on 80 m SSB. The boxes are on the left in four rows, with
+the Irish flag beside the call. The Station card shows the photo from
+QRZ.com, the locator, distance, bearing and zones, and three earlier QSOs,
+the last in 2010. In the worked-before grid, 80 m phone is framed in amber
+because that is where the radio is.*
 
 - **The worked-before grid** shows the bands against phone, CW and data:
   green for this station, blue for their country, solid when confirmed,
@@ -384,11 +402,20 @@ but not confirmed.*
 - **Parks and summits**: **Activity** and **Ref** are logged as SIG and
   SIG_INFO, and as POTA_REF, SOTA_REF or WWFF_REF too. A park you have never
   worked is marked **NEW POTA**.
+- **The country's flag** appears beside the call as soon as it is
+  recognised.
 - **The Station card** fills in as you type the call: their name, QTH and
-  country, a photo from QRZ.com, how far away they are and the bearing,
-  their zones, and badges for a **new country**, a **new band**, a **first
-  QSO**, and whether they use LoTW or eQSL. The **QRZ** key opens their
-  page in your browser.
+  country, a photo from QRZ.com, and two rows of small boxes: the locator,
+  distance, bearing and zones, then how many QSOs you have had with them,
+  how many are confirmed, and the last and the first. Badges show whether
+  they use LoTW or eQSL, and a line across the top says if they are a **new
+  country**, a **new band** or a **new mode**. The **STATS**, **INFO**,
+  **AWARDS** and **MY** panels are on F1 to F4, and the **QRZ** key opens
+  their page in your browser.
+- **With a rotator**, a Rotor card shows the beam on a compass and turns it
+  to the station, short path or long path, with one click.
+- **QSL CARD** opens the QSL card for the QSO, saved or not (see
+  [Your own QSL card](#your-own-qsl-card)).
 - **The distance says where it came from**: their exact position on
   QRZ.com's map, their locator, an earlier QSO in your log, or one you
   typed. A four-character locator is a large square, and the card says how
@@ -434,15 +461,16 @@ first QSO; a station already worked in the contest would be marked DUPE.*
 | ![Cabrillo](docs/images/cabrillo.png) | ![The contest calendar](docs/images/contest-calendar.png) |
 | **Cabrillo**: choose the contest in the Logbook and press CABRILLO. The header categories offer only what the Cabrillo standard allows, your details are remembered, and the log is shown exactly as it will be written, with a warning for anything missing. A contest's log can also be exported as ADIF. | **The contest calendar**: what is on now, later today and coming up, with the time left. USE sets the Log QSO window up for it, and today's contests are at the top of the contest list. Dates come from each sponsor's rules and from the RSGB Contest Committee's own calendar. |
 
-## QSL services: QRZ.com and Logbook of the World
+## QSL services: QRZ.com, Logbook of the World and eQSL
 
-**QSL SERVICES**, in the Logbook, connects the log to QRZ.com and to the
-ARRL's Logbook of the World.
+**QSL SERVICES**, in the Logbook, connects the log to QRZ.com, to the
+ARRL's Logbook of the World, and to eQSL.cc.
 
 ![QSL services](docs/images/qsl-services.png)
 
-*QRZ.com on the left, Logbook of the World on the right, each with the
-number of QSOs not yet sent.*
+*QRZ.com on the left, Logbook of the World and eQSL.cc on the right, with
+the number of QSOs not yet sent. QSL CARD... at the bottom opens the card
+designer.*
 
 - **QRZ.com callsign lookup** fills in the Log QSO window as you type a
   call. Any account can log in; the full record and photo need a QRZ XML
@@ -452,12 +480,44 @@ number of QSOs not yet sent.*
 - **Logbook of the World**: QSOs are handed to the ARRL's own TQSL, which
   signs and uploads them with your certificate. New confirmations are
   fetched by themselves every six hours.
+- **eQSL.cc**: send a QSO's eQSL from its QSL card with **SEND eQSL**. A
+  QSO eQSL accepts is marked as sent in your log, and it appears in your
+  eQSL Outbox.
 - **Your state and county** go into every QSO (MY_STATE and MY_CNTY), for
   LoTW's WAS and county awards. Left empty, your TQSL Station Location's are
   used, and the window warns if what you typed doesn't match it.
 - **Your logins are kept safe** by Windows' Credential Manager, or in the
   Keychain on a Mac, never in the app's own files.
 - **TQSL** is found by itself in its usual place on Windows and on a Mac.
+
+## Your own QSL card
+
+**QSL CARD...**, in QSL Services, opens a designer for your own QSL card.
+Start from one of four ready-made designs, or a blank card, and make it
+yours.
+
+![The QSL card designer](docs/images/qsl-card-designer.png)
+
+*A card with a photo of the shack across it, the Irish flag, and the QSO
+box filled in for the QSO in the Log QSO form.*
+
+- **Add as many pictures as you like**, and text, shapes, flags and a box
+  with the details of the QSO. Drag them into place with guides to line
+  them up; resize, turn, fade and add shadows; and bring them forward or
+  send them back in the list of layers. **UNDO** and **REDO** work as you'd
+  expect.
+- **Filled in for you**: their call, the date and time, frequency, band,
+  mode and report come from the QSO, whether it is in your log or still in
+  the Log QSO form. Right-click a QSO in the Logbook and choose **QSL card
+  for...**.
+- **Print it**, or save it as a picture or a PDF at its real size, 140 by
+  90 mm.
+- **For eQSL**: **SAVE eQSL PICTURE** saves your design at eQSL's own size,
+  528 by 336 pixels, ready to upload as your card design on eQSL.cc. eQSL
+  draws every card you send on the design in your eQSL account, so upload it
+  there once and every QSO you send shows it.
+- **Keep several designs**, and **EXPORT** one to a file, pictures and all,
+  to share it or keep it safe.
 
 ## Who is hearing me: the PSK map
 
@@ -1261,8 +1321,11 @@ You also need:
   (Silicon Labs CP210x) so its ports show up. On a Mac, if the ports don't
   appear, install the CP210x driver for macOS from Silicon Labs.
 - The radio's CAT speed set to **115200** (menu 7-00).
-- For the bandscope over the network: the radio on your network, and the
-  KNS user name and password set on the radio. Everything else works
+- For the bandscope over the network: the radio on your network, with
+  **KNS Operation** (KNS Menu [0] on the radio) set to **On (LAN)** or **On
+  (Internet)**, and the KNS user name and password set on the radio. To
+  switch the radio on with POWER while you are away from home, choose On
+  (Internet). Everything else works
   without it, just with a slower bandscope over USB.
 - For remote operation: no USB cable on the laptop. The radio on your home
   network with its KNS and built-in VoIP switched on and, from outside your
