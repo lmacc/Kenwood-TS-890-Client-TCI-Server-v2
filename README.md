@@ -27,13 +27,25 @@ comes over your network, because the USB serial link is too slow for a
 smooth scope. Or connect over the network alone, and use the radio from
 somewhere else.
 
-> **Version 2.4.18 replaces every earlier release.** Run its installer and it
+> **Version 2.4.19 replaces every earlier release.** Run its installer and it
 > removes the version you have and puts itself in its place: your settings,
 > layouts and logbook are kept. Updates only go forward, so everyone is on
 > the same version. If you use the Remote Relay at home, update that too
 > (see [Remote operation](#remote-operation-experimental)).
 
-**New in 2.4.18:** [a new-look logbook](#the-logbook) that opens ready to
+**New in 2.4.19:** a **Recent** button beside **Host** in Connections lists
+the last eight hosts you connected to, so switching between home and away no
+longer means typing an address; give each one a name, such as *Home* or
+*Away*. And [the Remote Relay](#remote-operation-experimental) shares the
+computer at home more politely: it holds the radio's audio ports only while
+someone is connected, so another program on the same Pi can use the radio's
+audio in between; it wakes a radio whose network sleeps (KNS Operation On
+(LAN)); and it lets go of a laptop or phone that has dropped off within
+fifteen seconds, so it can connect again straight away instead of being told
+the radio is busy. **Update the relay at home** to get these:
+[the steps are below](#raspberry-pi-for-the-remote-relay).
+
+**In 2.4.18:** [a new-look logbook](#the-logbook) that opens ready to
 log and narrows to the call as you type it, with the country's flag beside
 the call. New [Statistics and Awards](#the-logbook) pages with colour charts,
 the DXCC Challenge and 5-Band DXCC. [Design your own QSL card](#your-own-qsl-card)
@@ -805,6 +817,16 @@ safe:
   receive. It doesn't wait for the connection to time out.
 - **No transmission lasts longer than ten minutes**, in case a key is
   stuck down at the far end. You can change the limit.
+- **A laptop or phone that drops off without saying goodbye** (the signal
+  lost, the app closed) is let go after fifteen seconds of silence, so it
+  can connect again straight away instead of being told the radio is busy.
+
+It also shares the computer at home: it holds the radio's audio ports
+(UDP 60001 and 60002) only while someone is connected, so another program on
+the same Pi can use the radio's audio in between. And if the radio's KNS
+Operation is set to **On (LAN)**, its network sleeps while it is switched
+off; the relay wakes it when you press POWER, which only a computer on your
+home network can do.
 
 **On a phone or hotspot**, tick **Low data** on the Network page: the relay
 sends compressed audio and a slower bandscope, about 50 MB an hour instead
@@ -812,9 +834,10 @@ of about 250. **The status bar** shows how good the link is, good, fair or
 poor, with the ping, jitter and lost audio, so a choppy link can be told
 from a quiet band.
 
-> **Update the relay at home too.** The safety checks, low data and the
-> ping need the relay from version 2.4. On a PC it comes with the app; on a
-> Raspberry Pi, see [below](#raspberry-pi-for-the-remote-relay).
+> **Update the relay at home too.** Waking the radio, sharing the audio
+> ports and letting go of a dropped laptop need the relay from version
+> 2.4.19. On a PC it comes with the app; on a Raspberry Pi, see
+> [below](#raspberry-pi-for-the-remote-relay).
 
 The computer at home can be the shack PC, where the installer can start the
 relay with Windows, or a **Raspberry Pi**, which uses a few watts and starts
@@ -1298,9 +1321,37 @@ app.
 *The relay installed and running on a Raspberry Pi. The last line is the
 Pi's Tailscale address, for Host on the laptop.*
 
-**To update it**, copy the new package to the Pi and run the same three
-lines. The installer replaces the relay and restarts it. If you changed the
-transmit limit, set it again afterwards.
+**To update it**, step by step, with no Linux needed:
+
+1. Download the new **`TS-890S-Remote-Relay-raspberry-pi.tar.gz`** from the
+   [latest release](https://github.com/lmacc/Kenwood-TS-890-Client-TCI-Server-v2/releases/latest)
+   on your PC or Mac.
+2. Send it to the Pi with Tailscale: on Windows, right-click the file and
+   choose **Send with Tailscale** (on Windows 11, under *Show more
+   options*), then pick the Pi. On a Mac, right-click it, **Share**,
+   **Tailscale**.
+3. Open a command window on the Pi: its **Terminal**, or from your PC,
+   **PowerShell** (on a Mac, **Terminal**) and `ssh pi@raspberrypi`, with
+   your Pi's user name and Tailscale name.
+4. Type these lines one at a time, pressing **Enter** after each, with your
+   radio's address in the last one:
+   ```
+   cd ~
+   sudo rm -rf ts890-remote-relay TS-890S-Remote-Relay-raspberry-pi.tar.gz
+   sudo tailscale file get .
+   tar xzf TS-890S-Remote-Relay-raspberry-pi.tar.gz
+   cd ts890-remote-relay
+   sudo sh install.sh 192.168.1.171
+   ```
+   Forgotten the radio's address? Before the last line, type
+   `grep -o 'host [0-9.]*' /etc/systemd/system/kns-relay.service`.
+5. The installer replaces the relay and restarts it, and it still starts at
+   every boot. Nothing changes on the laptop. Type `exit` to close the
+   command window.
+
+If you changed the transmit limit, set it again afterwards. The
+[2.4.19 release notes](https://github.com/lmacc/Kenwood-TS-890-Client-TCI-Server-v2/releases/tag/v2.4.19)
+and the user guide (section 24) have these steps with more explanation.
 
 Needs a Raspberry Pi 2 or later (including the Pi Zero 2 W) with Raspberry
 Pi OS, 32-bit or 64-bit, and Tailscale. The README in the package and the
