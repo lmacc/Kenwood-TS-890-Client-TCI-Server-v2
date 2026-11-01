@@ -27,13 +27,23 @@ comes over your network, because the USB serial link is too slow for a
 smooth scope. Or connect over the network alone, and use the radio from
 somewhere else.
 
-> **Version 2.4.19 replaces every earlier release.** Run its installer and it
+> **Version 2.4.20 replaces every earlier release.** Run its installer and it
 > removes the version you have and puts itself in its place: your settings,
 > layouts and logbook are kept. Updates only go forward, so everyone is on
-> the same version. If you use the Remote Relay at home, update that too
-> (see [Remote operation](#remote-operation-experimental)).
+> the same version. If you use the Remote Relay at home, make sure it is
+> 2.4.19 or later (see [Remote operation](#remote-operation-experimental)).
 
-**New in 2.4.19:** a **Recent** button beside **Host** in Connections lists
+**New in 2.4.20:** no more short freezes over the network: the screen, audio
+and meters could stop for a few seconds after tuning, while the app
+reconnected. The bar of keys across the top can no longer be hidden by
+accident, and if yours went missing it comes back by itself. A laptop's
+trackpad now tunes with a two-finger scroll, and the VFO knob has a new
+**spring-back** way to tune for trackpads: pull it round and hold it, and
+the further you pull the faster it goes; let go and it springs back. A click
+on the waterfall now tunes, and clicks can round to 100 Hz, 500 Hz, 1 kHz or
+5 kHz, the way the radio's own screen does when you touch it.
+
+**In 2.4.19:** a **Recent** button beside **Host** in Connections lists
 the last eight hosts you connected to, so switching between home and away no
 longer means typing an address; give each one a name, such as *Home* or
 *Away*. And [the Remote Relay](#remote-operation-experimental) shares the
@@ -165,9 +175,10 @@ panel.
   frequency display laid out as the radio's, filter scope, clock, RIT/XIT,
   D.VOX, power, MIC and DELAY.
 - **Tuning to the hertz.** FINE gives 1 Hz steps, as on the radio, and the
-  tuning knob follows the mouse smoothly.
-- **Bandscope and waterfall** over your network. Click to tune, drag to
-  tune, markers, drag the filter edges, and band plans for every HF band,
+  tuning knob follows the mouse smoothly, or a trackpad's two-finger scroll.
+  For a trackpad it can also spring back: pull it round and hold to tune.
+- **Bandscope and waterfall** over your network. Click either to tune
+  (rounded to a step if you like), drag to tune, markers, drag the filter edges, and band plans for every HF band,
   your own country's and up to four others at once.
 - **Audio scope.** See your receive and transmit audio, with peak and
   average traces, THD and S/N readings.
@@ -1230,6 +1241,13 @@ window (40001 here).
 > **"Windows protected your PC"?** The installer isn't digitally signed
 > yet, so Windows asks before running it the first time. Click **More
 > info**, then **Run anyway**.
+>
+> **Microsoft Defender blocks it as "Trojan:Win32/Bearfoos.A!ml"?** That
+> is a false alarm (the "!ml" means Defender's automatic guesswork, not a
+> known virus), and it has been reported to Microsoft. Until it is cleared,
+> open **Windows Security**, then **Virus & threat protection**, then
+> **Protection history**, open the blocked item and choose **Allow on
+> device**.
 
 The first time you run it, the Connections window opens and the app looks
 for the radio's COM port by itself. Then, on the **Network** page, set the
