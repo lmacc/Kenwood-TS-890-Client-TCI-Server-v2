@@ -1242,12 +1242,9 @@ window (40001 here).
 > yet, so Windows asks before running it the first time. Click **More
 > info**, then **Run anyway**.
 >
-> **Microsoft Defender blocks it as "Trojan:Win32/Bearfoos.A!ml"?** That
-> is a false alarm (the "!ml" means Defender's automatic guesswork, not a
-> known virus), and it has been reported to Microsoft. Until it is cleared,
-> open **Windows Security**, then **Virus & threat protection**, then
-> **Protection history**, open the blocked item and choose **Allow on
-> device**.
+> **Microsoft Defender blocked it?** See
+> [If Microsoft Defender blocks the app](#if-microsoft-defender-blocks-the-app)
+> below.
 
 The first time you run it, the Connections window opens and the app looks
 for the radio's COM port by itself. Then, on the **Network** page, set the
@@ -1277,6 +1274,25 @@ About box keeps the CW decoder's callsign list up to date.
 <img src="docs/images/about-updates.png" alt="The Updates part of the About box" width="420">
 
 To remove the app, use **Settings → Apps** like any other program.
+
+#### If Microsoft Defender blocks the app
+
+Some PCs have seen Microsoft Defender block the app after installing, with
+the message "Operation did not complete successfully because the file
+contains a virus or potentially unwanted software", or a Defender alert
+naming **Trojan:Win32/Bearfoos.A!ml**.
+
+That is a false alarm. The "!ml" at the end means Defender's automatic
+guesswork, not a known virus, and it happens to new programs that aren't
+signed yet. It has been reported to Microsoft. Until they clear it, you can
+let the app run:
+
+1. Open **Windows Security** from the Start menu.
+2. Go to **Virus & threat protection**, then **Protection history**.
+3. Open the blocked item for **ts890-usb.exe** and choose **Actions**, then
+   **Allow on device**.
+4. Start **TS-890S Desktop** again. If it is still missing, run the
+   installer once more.
 
 ### Mac
 
