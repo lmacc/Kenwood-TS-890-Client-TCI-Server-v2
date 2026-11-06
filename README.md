@@ -27,13 +27,22 @@ comes over your network, because the USB serial link is too slow for a
 smooth scope. Or connect over the network alone, and use the radio from
 somewhere else.
 
-> **Version 2.4.20 replaces every earlier release.** Run its installer and it
+> **Version 2.4.21 replaces every earlier release.** Run its installer and it
 > removes the version you have and puts itself in its place: your settings,
 > layouts and logbook are kept. Updates only go forward, so everyone is on
 > the same version. If you use the Remote Relay at home, make sure it is
 > 2.4.19 or later (see [Remote operation](#remote-operation-experimental)).
 
-**New in 2.4.20:** no more short freezes over the network: the screen, audio
+**New in 2.4.21:** **NR3** noise reduction, for voice. The NR4 key is now
+**NR 3/4**: tap it for NR 3, NR 4 and off, the way the radio's own NR key
+steps through NR1 and NR2, and hold it for the settings of the one chosen.
+NR3 is RNNoise, a small neural network trained on speech, and the same NR3
+as in Thetis and deskHPSDR. It leaves a quiet background between words,
+without the bubbling NR4 can leave as it works harder. It knows only
+speech, so use it for SSB and AM voice and keep NR4 for CW and data. Its
+one setting is the level, from 1 to 5.
+
+**In 2.4.20:** no more short freezes over the network: the screen, audio
 and meters could stop for a few seconds after tuning, while the app
 reconnected. The bar of keys across the top can no longer be hidden by
 accident, and if yours went missing it comes back by itself. A laptop's
@@ -185,7 +194,8 @@ panel.
 - **More of the radio**: its memory channels, voice messages, scan, quick
   memories, FM tones, the audio peak filter, CONFIG A/B, auto mode and its
   SWL screen. [More below](#more-of-the-radio-from-the-app).
-- **NR4 noise reduction** on the computer, on top of the radio's own NR.
+- **NR3 and NR4 noise reduction** on the computer, on top of the radio's
+  own NR: NR3 for voice, NR4 for everything.
 - **CW, RTTY and PSK31.** Decode and send, with F1 to F8 macros. The CW
   decoder copies like a skimmer: it finds the station's tone, follows the
   speed, puts words right, colours callsigns and CW words, and names the
@@ -271,8 +281,8 @@ panel.
 | All the setup in one window: a lamp for each link along the top, and pages for the radio, audio, microphone, network, and sharing and TCI. | View settings: the panel, its clusters, your layouts, the display size and the panes. |
 | ![Working with Log4OM and WSJT-X](docs/images/tci-and-cat-sharing.png) | ![NR4](docs/images/nr4.png) |
 | Log4OM and WSJT-X following the radio. | NR4 noise reduction, with every setting explained. |
-| ![Key bindings](docs/images/key-bindings.png) | |
-| Put any key on the keyboard. | |
+| ![Key bindings](docs/images/key-bindings.png) | ![NR3](docs/images/nr3.png) |
+| Put any key on the keyboard. | NR3 noise reduction, for voice: one setting, the level. |
 
 ## More of the radio, from the app
 
@@ -1435,8 +1445,8 @@ covers every window and key, with a picture of each:
 - **Setup in one window.** COM port, audio, microphone, bandscope and
   sharing, with **Find radio** to pick the right COM port.
 - **The panel**: the top of the screen, tuning, band stacks, split and
-  TF-SET, the bandscope and the audio scope, NR4, and making the layout
-  yours.
+  TF-SET, the bandscope and the audio scope, NR3 and NR4, and making the
+  layout yours.
 - **CW, RTTY, PSK31, FT8, the microphone, FreeDV and plugins**, with
   reading CW, its colours and callsign labels, and calls to watch for.
 - **Logging**: the Log QSO window, the Logbook with its statistics, map and
@@ -1475,7 +1485,7 @@ are personal to the donor. The
 full terms are in `LICENSE.txt` in the download. Only the finished program
 is released, not the source code.
 
-It uses Qt, libspecbleach, codec2, RADE, Opus, the VST 3 SDK and KISS FFT,
+It uses Qt, libspecbleach, RNNoise, codec2, RADE, Opus, the VST 3 SDK and KISS FFT,
 which each have their own licence. You'll find those in the `licenses`
 folder of the download. The source of libspecbleach and codec2, as used, is
 attached to each release.
