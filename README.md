@@ -27,13 +27,25 @@ comes over your network, because the USB serial link is too slow for a
 smooth scope. Or connect over the network alone, and use the radio from
 somewhere else.
 
-> **Version 2.4.21 replaces every earlier release.** Run its installer and it
+> **Version 2.4.22 replaces every earlier release.** Run its installer and it
 > removes the version you have and puts itself in its place: your settings,
 > layouts and logbook are kept. Updates only go forward, so everyone is on
 > the same version. If you use the Remote Relay at home, make sure it is
 > 2.4.19 or later (see [Remote operation](#remote-operation-experimental)).
 
-**New in 2.4.21:** **NR3** noise reduction, for voice. The NR4 key is now
+**New in 2.4.22:** click on a VFO frequency to **type a new one** in its
+place, then press Enter: 14.074 is MHz, 14074 kHz, 14074000 Hz. **Save or
+copy a picture of the bandscope** from its DISPLAY menu, with the frequency,
+mode, your callsign and the time underneath, to keep or to show another
+station what their signal looks like. While the radio is switched off **the
+panel goes dark** and only POWER works. Fixed: with the bandscope over the
+network, switching the radio off and on left it empty, because the radio
+closes that connection when it is off; the app now opens it again by
+itself. Also fixed: the CW key said CW in CW-R, **Clear radio waterfall**
+left the app's waterfall full, and **CLR** on the audio scope didn't clear
+its HOLD captures.
+
+**In 2.4.21:** **NR3** noise reduction, for voice. The NR4 key is now
 **NR 3/4**: tap it for NR 3, NR 4 and off, the way the radio's own NR key
 steps through NR1 and NR2, and hold it for the settings of the one chosen.
 NR3 is RNNoise, a small neural network trained on speech, and the same NR3
@@ -186,9 +198,11 @@ panel.
 - **Tuning to the hertz.** FINE gives 1 Hz steps, as on the radio, and the
   tuning knob follows the mouse smoothly, or a trackpad's two-finger scroll.
   For a trackpad it can also spring back: pull it round and hold to tune.
+  Or click on a frequency in the display and type the one you want.
 - **Bandscope and waterfall** over your network. Click either to tune
   (rounded to a step if you like), drag to tune, markers, drag the filter edges, and band plans for every HF band,
-  your own country's and up to four others at once.
+  your own country's and up to four others at once. Save or copy a picture
+  of it, with the frequency and time underneath.
 - **Audio scope.** See your receive and transmit audio, with peak and
   average traces, THD and S/N readings.
 - **More of the radio**: its memory channels, voice messages, scan, quick
@@ -906,7 +920,7 @@ flashing while the radio's CW auto-tune works.*
 |---|---|
 | **Top line** | ANT, AGC, PRE and ATT all the time, greyed when off. After them, only while they're on: the antenna tuner, RX ANT, NR, NB1, NB2, NOTCH, BC, PROC, RX EQ, TX EQ and MAX-Po. |
 | **The antenna tuner** | **AT▸T** when the radio's tuner is in line for transmitting, and **R◂AT▸T** when it's in line for receiving too, as the radio shows it. It flashes while the tuner is tuning. |
-| **VFO A and VFO B** | Each frequency with its mode and band memory, such as *CW BAND 1*. A **TX** box marks the VFO you transmit on, filled in red while you transmit. |
+| **VFO A and VFO B** | Each frequency with its mode and band memory, such as *CW BAND 1*. A **TX** box marks the VFO you transmit on, filled in red while you transmit. Click on either frequency to type a new one in its place, then press **Enter** (**Esc** leaves it): 14.074 is MHz, 14074 kHz, 14074000 Hz. |
 | **Bottom line** | VFO, or the memory channel; SPLIT and the offset between the VFOs (ΔF); and TF-SET, RIT, XIT and LOCK while they're on. |
 | **CW TUNE** | Flashes on the right of the bottom line while the radio's CW auto-tune (the **CW T.** key) is working. |
 
