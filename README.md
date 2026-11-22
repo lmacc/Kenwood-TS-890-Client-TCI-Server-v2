@@ -27,13 +27,27 @@ comes over your network, because the USB serial link is too slow for a
 smooth scope. Or connect over the network alone, and use the radio from
 somewhere else.
 
-> **Version 2.4.22 replaces every earlier release.** Run its installer and it
+> **Version 2.4.23 replaces every earlier release.** Run its installer and it
 > removes the version you have and puts itself in its place: your settings,
 > layouts and logbook are kept. Updates only go forward, so everyone is on
 > the same version. If you use the Remote Relay at home, make sure it is
 > 2.4.19 or later (see [Remote operation](#remote-operation-experimental)).
 
-**New in 2.4.22:** click on a VFO frequency to **type a new one** in its
+**New in 2.4.23:** the [VST HOST](#the-vst-host): your audio interface's
+inputs through your VST 3 plugins, in a row or side by side, to its outputs,
+with every delay lined up, so the app can take REAPER's place in a studio
+set-up, and MIC sends what comes out of it. **ASIO for Listen and Mic in**:
+an audio interface's ASIO driver can now be chosen for hearing the radio
+and for your microphone, with the outputs and input you want, for less
+delay than Windows audio. The
+[Audio Analyser](#the-audio-analyser): the audio scope in a big window of
+its own, with four holds to compare, THD and signal-to-noise, levels and
+loudness, for receive and for your own transmit audio. Fixed: typing over
+the last digits of the frequency readout (7.123.450 to 7.123.0) sent the
+radio to 0.071.230; and the **CW T.** key no longer lights up, as it is a
+press on the radio, not a switch.
+
+**In 2.4.22:** click on a VFO frequency to **type a new one** in its
 place, then press Enter: 14.074 is MHz, 14074 kHz, 14074000 Hz. **Save or
 copy a picture of the bandscope** from its DISPLAY menu, with the frequency,
 mode, your callsign and the time underneath, to keep or to show another
@@ -178,7 +192,8 @@ panel.
 - [Remote operation](#remote-operation-experimental) ·
   [Fits your screen](#fits-your-screen) · [The top of the screen](#the-top-of-the-screen)
 - [Talk through the computer](#talk-through-the-computer) ·
-  [FreeDV](#freedv-digital-voice) · [VST 3 plugins](#vst-3-plugins)
+  [FreeDV](#freedv-digital-voice) · [VST 3 plugins](#vst-3-plugins) · [VST HOST](#the-vst-host) ·
+  [Audio Analyser](#the-audio-analyser)
 - [CW, RTTY and PSK31](#cw-rtty-and-psk31) · [Reading CW](#reading-cw) ·
   [Band plans](#band-plans) · [WSJT-X over TCI](#wsjt-x-over-tci-with-its-audio) ·
   [Log4OM over TCI](#log4om-over-tci)
@@ -1076,6 +1091,68 @@ The plugins run in a separate program in the background. A plugin that
 crashes or stops responding can't take the front panel with it, or leave
 the radio stuck in transmit. Your audio carries on without it, and the app
 tells you which plugin it was. Plugins have been tried on Windows so far.
+
+### The VST HOST
+
+For a station with an audio interface between the microphone and the radio,
+the **VST HOST** key on the top bar opens a plugin host of its own: the
+interface's inputs through your plugins to its outputs, the job many
+operators give to REAPER.
+
+![The VST HOST](docs/images/vst-host.png)
+
+*A Universal Audio Volt through its ASIO driver at 96 kHz: the microphone on
+LINE IN 3 through six plugins to LINE 1 + LINE 2, with the whole delay,
+60.98 ms, on the OUT box and no dropouts.*
+
+- **Drag and wire**: drag the interface's inputs and outputs and your
+  plugins onto the canvas, and wire them from an orange dot to a blue one,
+  in a row or side by side. Each box has its level, gain and delay, and
+  keys to switch it on or bypass it, open it, or take it away.
+- **Every delay lined up**: where sound meets by two routes, the quicker is
+  held back to match, and the output shows the whole delay. **MEASURE**
+  times the real round trip through a loop-back cable.
+- **ASIO or Windows audio**, at the rate and buffer you choose, with the
+  load and any dropouts shown along the bottom.
+- **Profiles** keep each chain, its plugins, their settings and the wires,
+  to switch between SSB and eSSB set-ups.
+- **MIC sends what comes out**: while the VST HOST is on, MIC transmits its
+  first output, so your processed voice goes to the radio, FreeDV included.
+- **Its own program**: like the plugin chains, a plugin that crashes takes
+  only the host with it, never the front panel or the radio.
+
+**ASIO without the VST HOST.** In **RADIO → Connections**, the Listen and
+Mic in lists also offer your interface's ASIO driver, with a choice of the
+output pair to hear the radio on and the input your microphone is on (left,
+right or both). ASIO skips Windows' own audio, so there is less delay both
+ways.
+
+## The Audio Analyser
+
+The **ANALYSER** key on the top bar opens the audio scope made bigger, in a
+window of its own, to keep open on a second screen. It shows the radio's
+receive audio and, while you transmit, the radio's transmit monitor, so you
+can see your own audio as it goes out.
+
+![The Audio Analyser](docs/images/audio-analyser.png)
+
+*Transmit audio on a log axis to 8 kHz: the harmonics of a voice, the top
+of the transmit filter in green, and MEAS showing where the power is, with
+its peaks labelled. The levels are on the right and the figures along the
+bottom.*
+
+- **LIVE, AVG, PEAK and MIN** curves, on a log or linear axis, to 3, 4, 5,
+  6 or 8 kHz or the top of the filter in use, with the filter marked.
+- **Four holds, A to D**, each in its own colour, to compare before and
+  after, saved and loaded as files, and named after the VST HOST profile
+  that was running.
+- **MEAS**: click a peak to read its THD, THD+N and signal-to-noise; drag
+  to measure the power in a span; add markers.
+- **Figures and levels**: the bandwidth at 6 and 20 dB down, where the
+  power sits, the noise floor, peak, RMS, loudness, crest factor, true peak
+  and clips.
+- **FREEZE**, a waterfall and a waveform strip, and the picture or the data
+  saved to a file.
 
 ## CW, RTTY and PSK31
 
