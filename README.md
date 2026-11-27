@@ -27,6 +27,41 @@ comes over your network, because the USB serial link is too slow for a
 smooth scope. Or connect over the network alone, and use the radio from
 somewhere else.
 
+## Coming in the next release
+
+### The EQ RACK
+
+![The EQ RACK](docs/images/eq-rack.png)
+
+*The EQ RACK: the app's own transmit audio units, an EQ, compressors, a
+limiter and more, with your own VST 3 plugins among them. It works like the
+VST HOST. Draw a line from one unit to the next, run units side by side and
+they are lined up in time, and set each unit's level with its own GAIN and
+meter. ARRANGE lays the board out for you. It works on the voice this
+computer sends the radio, or between an audio interface's input and its line
+outputs into the radio, with a LEVEL for each. Here a Universal Audio Volt's
+LINE IN 3 goes through GATE, EQ and LIMITER and out of its LINE 1 + LINE 2.*
+
+![A unit in its own window](docs/images/eq-rack-unit.png)
+
+*Click a unit and it opens in a window of its own, with your voice live on
+its picture. Point at a style and the picture shows what it would do before
+you click it.*
+
+### SPE Expert amplifiers
+
+![The AMP cluster on the panel](docs/images/amp-panel.png)
+
+*An SPE Expert 1.3K-FA, 1.5K-FA or 2K-FA on its own USB or RS-232 port. Its
+keys and readings sit in the panel's AMP cluster (arrowed): OPERATE, TUNE,
+PWR, ANT, IN and OFF, with its output, its SWR and its link lamp.*
+
+![Connections, Amplifier](docs/images/amp-settings.png)
+
+*Connections > Amplifier: the amplifier's port, and whether it follows the
+radio's band, goes to standby when the app closes and stops the transmitter
+on an alarm.*
+
 > **Version 2.4.23 replaces every earlier release.** Run its installer and it
 > removes the version you have and puts itself in its place: your settings,
 > layouts and logbook are kept. Updates only go forward, so everyone is on
