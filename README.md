@@ -27,7 +27,7 @@ comes over your network, because the USB serial link is too slow for a
 smooth scope. Or connect over the network alone, and use the radio from
 somewhere else.
 
-## Coming in the next release
+## New in 2.4.24
 
 ### The EQ RACK
 
@@ -62,13 +62,13 @@ PWR, ANT, IN and OFF, with its output, its SWR and its link lamp.*
 radio's band, goes to standby when the app closes and stops the transmitter
 on an alarm.*
 
-> **Version 2.4.23 replaces every earlier release.** Run its installer and it
+> **Version 2.4.24 replaces every earlier release.** Run its installer and it
 > removes the version you have and puts itself in its place: your settings,
 > layouts and logbook are kept. Updates only go forward, so everyone is on
 > the same version. If you use the Remote Relay at home, make sure it is
 > 2.4.19 or later (see [Remote operation](#remote-operation-experimental)).
 
-**New in 2.4.23:** the [VST HOST](#the-vst-host): your audio interface's
+**In 2.4.23:** the [VST HOST](#the-vst-host): your audio interface's
 inputs through your VST 3 plugins, in a row or side by side, to its outputs,
 with every delay lined up, so the app can take REAPER's place in a studio
 set-up, and MIC sends what comes out of it. **ASIO for Listen and Mic in**:
